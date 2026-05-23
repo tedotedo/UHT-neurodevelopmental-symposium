@@ -1,6 +1,20 @@
 document.documentElement.classList.add('js-ready');
 
 (() => {
+  const backToTop = document.querySelector('.back-to-top');
+  if (!backToTop) return;
+  const revealAt = 520;
+  const updateVisibility = () => {
+    backToTop.classList.toggle('is-visible', window.scrollY > revealAt);
+  };
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  updateVisibility();
+})();
+
+(() => {
   const storagePrefix = 'tees-symposium-note:';
   const textareas = Array.from(document.querySelectorAll('[data-note-key]'));
   if (!textareas.length) return;
