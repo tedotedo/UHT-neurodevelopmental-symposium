@@ -135,9 +135,9 @@
 
       <section class="section notes-lab" id="talk-notes" aria-labelledby="notes-title">
         <div class="section-heading compact-heading">
-          <p class="eyebrow blue">Conference notebook</p>
-          <h2 id="notes-title">Keep private notes linked to the programme.</h2>
-          <p>Notes are saved in this browser only, so delegates can build a practical action list during the two days without sending anything to a server.</p>
+          <p class="eyebrow blue">Lecture-linked notebook</p>
+          <h2 id="notes-title">Take private notes against each individual talk.</h2>
+          <p>Each notes box follows the actual lecture timetable, so delegates can capture learning points, questions and actions for the specific session they are attending.</p>
         </div>
         <div class="notes-actions" aria-label="Notebook controls">
           <button class="button primary" type="button" id="export-notes">Download notes</button>
@@ -145,35 +145,75 @@
           <button class="button ghost" type="button" id="clear-notes">Clear local notes</button>
         </div>
         <div class="note-grid" aria-live="polite">
-          <article class="note-card" data-talk="day1-cp">
-            <div class="note-meta"><span>Day 1</span><strong>Cerebral palsy & spasticity</strong></div>
-            <label for="note-day1-cp">Key learning, questions and service actions</label>
-            <textarea id="note-day1-cp" data-note-key="day1-cp" rows="6" placeholder="e.g. assessment pearls, referral pathway changes, equipment considerations..."></textarea>
+          <article class="note-card" data-talk="day1-cerebral-palsy-care">
+            <div class="note-meta"><span>Day 1 · 09:30</span><strong>Beyond the Diagnosis: Transforming care for children with Cerebral Palsy in a complex system</strong><em>Dr Yasmin DeAlwis</em></div>
+            <label for="note-day1-cerebral-palsy-care">Key learning, questions and service actions</label>
+            <textarea id="note-day1-cerebral-palsy-care" data-note-key="day1-cerebral-palsy-care" rows="5" placeholder="Assessment pearls, care-coordination ideas, pathway gaps, actions for my service..."></textarea>
           </article>
-          <article class="note-card" data-talk="day1-autism">
-            <div class="note-meta"><span>Day 1</span><strong>Autism, anxiety & mental health</strong></div>
-            <label for="note-day1-autism">Clinical takeaways</label>
-            <textarea id="note-day1-autism" data-note-key="day1-autism" rows="6" placeholder="e.g. screening questions, school interface, family resources..."></textarea>
+          <article class="note-card" data-talk="day1-autism-genetics-treatment">
+            <div class="note-meta"><span>Day 1 · 10:15</span><strong>Cracking the Code: From Genetic discovery to new treatment horizons in Autism</strong><em>Dr Mark Aszkenasy</em></div>
+            <label for="note-day1-autism-genetics-treatment">What should change in my autism/genomics conversations?</label>
+            <textarea id="note-day1-autism-genetics-treatment" data-note-key="day1-autism-genetics-treatment" rows="5" placeholder="Testing indications, counselling points, treatment horizons, questions for genetics colleagues..."></textarea>
           </article>
-          <article class="note-card" data-talk="day1-genetics">
-            <div class="note-meta"><span>Day 1</span><strong>Genetics & neurocutaneous disorders</strong></div>
-            <label for="note-day1-genetics">Questions for practice</label>
-            <textarea id="note-day1-genetics" data-note-key="day1-genetics" rows="6" placeholder="e.g. when to request genomic testing, red flags, counselling points..."></textarea>
+          <article class="note-card" data-talk="day1-movement-disorders">
+            <div class="note-meta"><span>Day 1 · 11:30</span><strong>More Than a Tremor: Navigating the full spectrum of movement disorders in children and young people</strong><em>Dr Santosh Mordekar</em></div>
+            <label for="note-day1-movement-disorders">Diagnostic clues and management points</label>
+            <textarea id="note-day1-movement-disorders" data-note-key="day1-movement-disorders" rows="5" placeholder="Phenomenology, video-history tips, red flags, referral/escalation points..."></textarea>
           </article>
-          <article class="note-card" data-talk="day2-epilepsy">
-            <div class="note-meta"><span>Day 2</span><strong>Epilepsy & movement disorders</strong></div>
-            <label for="note-day2-epilepsy">Diagnostic reasoning notes</label>
-            <textarea id="note-day2-epilepsy" data-note-key="day2-epilepsy" rows="6" placeholder="e.g. seizure mimics, video history points, escalation thresholds..."></textarea>
+          <article class="note-card" data-talk="day1-spasticity-management">
+            <div class="note-meta"><span>Day 1 · 12:15</span><strong>Loosening the Grip: Modern approaches to spasticity management in children with Neurodisability</strong><em>Dr Ram Kumar</em></div>
+            <label for="note-day1-spasticity-management">Treatment options and multidisciplinary actions</label>
+            <textarea id="note-day1-spasticity-management" data-note-key="day1-spasticity-management" rows="5" placeholder="Tone assessment, therapy interface, medication/Botox/surgical considerations, follow-up actions..."></textarea>
           </article>
-          <article class="note-card" data-talk="day2-communication">
-            <div class="note-meta"><span>Day 2</span><strong>Palliative communication</strong></div>
-            <label for="note-day2-communication">Language and consultation notes</label>
-            <textarea id="note-day2-communication" data-note-key="day2-communication" rows="6" placeholder="e.g. phrases to use, family-centred planning, shared decision-making..."></textarea>
+          <article class="note-card" data-talk="day1-functional-neurological-disorders">
+            <div class="note-meta"><span>Day 1 · 13:45</span><strong>Not What it Seems: Diagnosing and Managing Neurological Functional disorders in children</strong><em>Dr V Ramesh</em></div>
+            <label for="note-day1-functional-neurological-disorders">Assessment and explanation notes</label>
+            <textarea id="note-day1-functional-neurological-disorders" data-note-key="day1-functional-neurological-disorders" rows="5" placeholder="Positive signs, language for families, psychology/therapy links, safety-netting..."></textarea>
           </article>
-          <article class="note-card" data-talk="day2-transition">
-            <div class="note-meta"><span>Day 2</span><strong>Transition of care</strong></div>
-            <label for="note-day2-transition">Actions to take back</label>
-            <textarea id="note-day2-transition" data-note-key="day2-transition" rows="6" placeholder="e.g. transition checklist, adult-service links, young-person goals..."></textarea>
+          <article class="note-card" data-talk="day1-neurometabolic-investigation">
+            <div class="note-meta"><span>Day 1 · 14:30</span><strong>Following the Metabolic Trail: When and how to investigate Neurometabolic conditions in children with developmental disorders</strong><em>Dr Bernd C Schwahn</em></div>
+            <label for="note-day1-neurometabolic-investigation">Investigation thresholds and red flags</label>
+            <textarea id="note-day1-neurometabolic-investigation" data-note-key="day1-neurometabolic-investigation" rows="5" placeholder="Clinical clues, first-line tests, urgent presentations, specialist referral triggers..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day1-palliative-communication">
+            <div class="note-meta"><span>Day 1 · 15:30</span><strong>Compassionate Communication in Palliative Care for Children with Neurodisability</strong><em>Dr Helen Aspey</em></div>
+            <label for="note-day1-palliative-communication">Phrases, framing and family-centred planning</label>
+            <textarea id="note-day1-palliative-communication" data-note-key="day1-palliative-communication" rows="5" placeholder="Useful words, questions to ask, shared decision-making, advance-care-planning points..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-neurocutaneous-conditions">
+            <div class="note-meta"><span>Day 2 · 09:30</span><strong>Spots, Patches and Tumours: What’s new in the care of children with tuberous sclerosis and neurofibromatosis?</strong><em>Prof Sam Amin</em></div>
+            <label for="note-day2-neurocutaneous-conditions">Surveillance and treatment updates</label>
+            <textarea id="note-day2-neurocutaneous-conditions" data-note-key="day2-neurocutaneous-conditions" rows="5" placeholder="TSC/NF1 surveillance, new therapies, family counselling, clinic follow-up actions..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-genetic-testing-neurodisability">
+            <div class="note-meta"><span>Day 2 · 10:15</span><strong>Solving the puzzle: Making sense of Genetic testing in children with neurodisability</strong><em>Dr Ruth Richardson</em></div>
+            <label for="note-day2-genetic-testing-neurodisability">Testing strategy and counselling notes</label>
+            <textarea id="note-day2-genetic-testing-neurodisability" data-note-key="day2-genetic-testing-neurodisability" rows="5" placeholder="CMA/exome/genome points, consent, variants, reanalysis, when to refer..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-refugee-asylum-paediatrics">
+            <div class="note-meta"><span>Day 2 · 11:30</span><strong>Crossing Borders, Facing Barriers: Supporting Asylum-seeking and refugee children in paediatric practice</strong><em>Dr Vicki Walker</em></div>
+            <label for="note-day2-refugee-asylum-paediatrics">Practical barriers and service responses</label>
+            <textarea id="note-day2-refugee-asylum-paediatrics" data-note-key="day2-refugee-asylum-paediatrics" rows="5" placeholder="Access barriers, interpreters, trauma-informed care, safeguarding, local pathway actions..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-complex-epilepsy">
+            <div class="note-meta"><span>Day 2 · 12:15</span><strong>When Seizures Won’t Stop: Practical strategies for managing complex epilepsy in children</strong><em>Dr Jeen Tan</em></div>
+            <label for="note-day2-complex-epilepsy">Escalation and management notes</label>
+            <textarea id="note-day2-complex-epilepsy" data-note-key="day2-complex-epilepsy" rows="5" placeholder="Rescue plans, medication strategies, investigations, tertiary referral thresholds..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-mental-health-neurodevelopment">
+            <div class="note-meta"><span>Day 2 · 13:45</span><strong>Hidden in Plain Sight: Recognising and responding to Mental Health Problems in children with Neurodevelopmental disorders</strong><em>Dr Olivia Kenneally</em></div>
+            <label for="note-day2-mental-health-neurodevelopment">Recognition and response notes</label>
+            <textarea id="note-day2-mental-health-neurodevelopment" data-note-key="day2-mental-health-neurodevelopment" rows="5" placeholder="Screening prompts, risk assessment, autism/ADHD adaptations, CAMHS interface actions..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-fasd">
+            <div class="note-meta"><span>Day 2 · 14:15</span><strong>FASD: Facing the Realities, Celebrating the Progress, and Tackling what remains hard</strong><em>Dr Sarah Mills</em></div>
+            <label for="note-day2-fasd">Assessment, diagnosis and support notes</label>
+            <textarea id="note-day2-fasd" data-note-key="day2-fasd" rows="5" placeholder="History-taking, diagnostic criteria, family support, school/community recommendations..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-transition-complex-needs">
+            <div class="note-meta"><span>Day 2 · 15:00</span><strong>Crossing the Bridge: Transforming Transition for Young People with complex medical needs</strong><em>Dr Ramesh Kumar and Ms Debbie Dack</em></div>
+            <label for="note-day2-transition-complex-needs">Transition actions to take back</label>
+            <textarea id="note-day2-transition-complex-needs" data-note-key="day2-transition-complex-needs" rows="5" placeholder="Readiness tools, adult-service links, young-person goals, checklist improvements..."></textarea>
           </article>
         </div>
         <p class="privacy-note">Privacy note: this feature uses local browser storage only. Do not enter identifiable patient information.</p>
