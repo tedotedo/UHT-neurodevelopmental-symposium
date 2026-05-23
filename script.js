@@ -6,11 +6,33 @@ document.documentElement.classList.add('js-ready');
   const close = document.querySelector('.site-menu-close');
   if (!toggle || !menu) return;
 
+  let lockedScrollY = 0;
+
+  const lockPageScroll = () => {
+    lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${lockedScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  };
+
+  const unlockPageScroll = () => {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, lockedScrollY);
+  };
+
   const setOpen = (open) => {
     menu.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
     document.body.classList.toggle('menu-open', open);
+    if (open) lockPageScroll();
+    else unlockPageScroll();
   };
 
   toggle.addEventListener('click', () => setOpen(menu.hidden));
