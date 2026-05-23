@@ -19,8 +19,9 @@
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="#programme">Programme</a>
+        <a href="#talk-notes">Talk notes</a>
+        <a href="#resources">Resources</a>
         <a href="#audience">Audience</a>
-        <a href="#heritage">Heritage</a>
         <a href="#venue">Venue</a>
       </nav>
       <a class="nav-cta" href="https://events.southtees.nhs.uk/events/15th-tees-neuro-developmental-paediatrics-symposium-6th-7th-july-2026/">Book</a>
@@ -90,6 +91,70 @@
         <article class="theme-card accent-green"><span>04</span><h3>Epilepsy & movement disorders</h3><p>Clinical reasoning for seizure mimics, movement disorders and neurology-adjacent presentations.</p></article>
         <article class="theme-card accent-blue"><span>05</span><h3>Palliative communication</h3><p>Words that heal: compassionate communication with children and families facing neurodisability.</p></article>
         <article class="theme-card accent-navy"><span>06</span><h3>Transition of care</h3><p>Supporting continuity as children and young people move through services and into adult pathways.</p></article>
+      </section>
+
+      <section class="section notes-lab" id="talk-notes" aria-labelledby="notes-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow blue">Conference notebook</p>
+          <h2 id="notes-title">Keep private notes linked to each talk theme.</h2>
+          <p>Notes are saved in this browser only, so delegates can build a practical action list during the two days without sending anything to a server.</p>
+        </div>
+        <div class="notes-actions" aria-label="Notebook controls">
+          <button class="button primary" type="button" id="export-notes">Download notes</button>
+          <button class="button secondary" type="button" id="print-notes">Print / save PDF</button>
+          <button class="button ghost" type="button" id="clear-notes">Clear local notes</button>
+        </div>
+        <div class="note-grid" aria-live="polite">
+          <article class="note-card" data-talk="day1-cp">
+            <div class="note-meta"><span>Day 1</span><strong>Cerebral palsy & spasticity</strong></div>
+            <label for="note-day1-cp">Key learning, questions and service actions</label>
+            <textarea id="note-day1-cp" data-note-key="day1-cp" rows="6" placeholder="e.g. assessment pearls, referral pathway changes, equipment considerations..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day1-autism">
+            <div class="note-meta"><span>Day 1</span><strong>Autism, anxiety & mental health</strong></div>
+            <label for="note-day1-autism">Clinical takeaways</label>
+            <textarea id="note-day1-autism" data-note-key="day1-autism" rows="6" placeholder="e.g. screening questions, school interface, family resources..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day1-genetics">
+            <div class="note-meta"><span>Day 1</span><strong>Genetics & neurocutaneous disorders</strong></div>
+            <label for="note-day1-genetics">Questions for practice</label>
+            <textarea id="note-day1-genetics" data-note-key="day1-genetics" rows="6" placeholder="e.g. when to request genomic testing, red flags, counselling points..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-epilepsy">
+            <div class="note-meta"><span>Day 2</span><strong>Epilepsy & movement disorders</strong></div>
+            <label for="note-day2-epilepsy">Diagnostic reasoning notes</label>
+            <textarea id="note-day2-epilepsy" data-note-key="day2-epilepsy" rows="6" placeholder="e.g. seizure mimics, video history points, escalation thresholds..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-communication">
+            <div class="note-meta"><span>Day 2</span><strong>Palliative communication</strong></div>
+            <label for="note-day2-communication">Language and consultation notes</label>
+            <textarea id="note-day2-communication" data-note-key="day2-communication" rows="6" placeholder="e.g. phrases to use, family-centred planning, shared decision-making..."></textarea>
+          </article>
+          <article class="note-card" data-talk="day2-transition">
+            <div class="note-meta"><span>Day 2</span><strong>Transition of care</strong></div>
+            <label for="note-day2-transition">Actions to take back</label>
+            <textarea id="note-day2-transition" data-note-key="day2-transition" rows="6" placeholder="e.g. transition checklist, adult-service links, young-person goals..."></textarea>
+          </article>
+        </div>
+        <p class="privacy-note">Privacy note: this feature uses local browser storage only. Do not enter identifiable patient information.</p>
+      </section>
+
+      <section class="section resources" id="resources" aria-labelledby="resources-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow blue">Authoritative learning links</p>
+          <h2 id="resources-title">Paediatric neurology and neurodevelopment resources.</h2>
+          <p>A curated set of UK and internationally recognised clinical sources to support further reading after the talks.</p>
+        </div>
+        <div class="resource-grid">
+          <a class="resource-card" href="https://www.nice.org.uk/guidance/conditions-and-diseases/neurological-conditions" target="_blank" rel="noopener"><span>NICE</span><strong>Neurological conditions guidance</strong><em>Evidence-based UK guidance and quality standards.</em></a>
+          <a class="resource-card" href="https://www.rcpch.ac.uk/resources/clinical-guidelines" target="_blank" rel="noopener"><span>RCPCH</span><strong>Clinical guidelines and standards</strong><em>Professional guidance for UK child health practice.</em></a>
+          <a class="resource-card" href="https://bpna.org.uk/" target="_blank" rel="noopener"><span>BPNA</span><strong>British Paediatric Neurology Association</strong><em>Education, training and paediatric neurology resources.</em></a>
+          <a class="resource-card" href="https://www.england.nhs.uk/learning-disabilities/" target="_blank" rel="noopener"><span>NHS England</span><strong>Learning disability and autism</strong><em>National programme information and service-improvement resources.</em></a>
+          <a class="resource-card" href="https://www.genomicseducation.hee.nhs.uk/" target="_blank" rel="noopener"><span>Genomics Education</span><strong>NHS genomics learning hub</strong><em>Genomics education for mainstream clinical practice.</em></a>
+          <a class="resource-card" href="https://www.orpha.net/" target="_blank" rel="noopener"><span>Orphanet</span><strong>Rare disease knowledge base</strong><em>International information on rare diseases and orphan drugs.</em></a>
+          <a class="resource-card" href="https://www.gosh.nhs.uk/conditions-and-treatments/conditions-we-treat/" target="_blank" rel="noopener"><span>GOSH</span><strong>Child health condition information</strong><em>Specialist paediatric information for families and professionals.</em></a>
+          <a class="resource-card" href="https://www.minded.org.uk/" target="_blank" rel="noopener"><span>MindEd</span><strong>Children and young people’s mental health</strong><em>Free educational resources on child mental health and neurodevelopment.</em></a>
+        </div>
       </section>
 
       <section class="section split" id="audience">
