@@ -1,6 +1,29 @@
 document.documentElement.classList.add('js-ready');
 
 (() => {
+  const toggle = document.querySelector('.brand-menu-toggle');
+  const menu = document.getElementById('site-menu');
+  const close = document.querySelector('.site-menu-close');
+  if (!toggle || !menu) return;
+
+  const setOpen = (open) => {
+    menu.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
+    document.body.classList.toggle('menu-open', open);
+  };
+
+  toggle.addEventListener('click', () => setOpen(menu.hidden));
+  close?.addEventListener('click', () => setOpen(false));
+  menu.addEventListener('click', (event) => {
+    if (event.target === menu) setOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !menu.hidden) setOpen(false);
+  });
+})();
+
+(() => {
   const backToTop = document.querySelector('.back-to-top');
   if (!backToTop) return;
   const revealAt = 520;
