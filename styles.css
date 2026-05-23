@@ -57,3 +57,6 @@ body.menu-open{overflow:hidden;touch-action:none;overscroll-behavior:none;}
   .site-menu-grid{gap:10px;}
   .site-menu-grid a{min-height:104px;padding:14px 16px;}
 }
+
+.cost-fact dd{font-size:30px;line-height:1.08}.cost-note{display:block;margin-top:12px;font-size:15px;line-height:1.22;font-weight:600;color:var(--slate);letter-spacing:0}.cost-note a{color:var(--nhs-blue);text-decoration:underline;text-underline-offset:3px}.cost-note a:hover{color:#003d78}
+@media (max-width:720px){.cost-fact dd{font-size:26px}.cost-note{font-size:14px}}
