@@ -118,3 +118,43 @@ body.menu-open{overflow:hidden;touch-action:none;overscroll-behavior:none;}
   .brand-menu-toggle{width:15%;border-radius:20%}.brand-menu-toggle .brand-mark{border-radius:20%}.nav-cta{height:42%;border-radius:13px;font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){.topbar .net-node,.topbar .pulse,.nav-cta,.nav-cta::before,.nav-cta::after{animation:none!important}}
+
+/* Venue card readability fix: keep all text away from the rounded clipping edge on small screens */
+.venue-card{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding:clamp(24px,5vw,44px);
+  overflow:visible;
+}
+.venue-card .eyebrow,
+.venue-card h2,
+.venue-card p{
+  margin-left:0;
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
+.venue-card h2{
+  margin-top:clamp(28px,5vw,54px);
+  margin-bottom:clamp(54px,9vw,110px);
+  font-size:clamp(40px,8vw,84px);
+  line-height:.95;
+}
+.venue-card p:not(.eyebrow){
+  font-size:clamp(24px,4.5vw,42px);
+  line-height:1.15;
+}
+.venue-card .button{
+  width:100%;
+  align-self:stretch;
+  margin-top:clamp(52px,8vw,92px);
+  min-height:72px;
+  font-size:clamp(22px,4vw,38px);
+}
+@media (max-width:720px){
+  .section.venue{margin-left:16px;margin-right:16px;}
+  .venue-card{border-radius:28px;padding:28px 24px;}
+  .venue-card h2{font-size:clamp(38px,11vw,64px);margin-top:40px;margin-bottom:70px;}
+  .venue-card p:not(.eyebrow){font-size:clamp(23px,6.5vw,34px);}
+  .venue-card .button{min-height:64px;margin-top:64px;}
+}
