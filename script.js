@@ -1,7 +1,7 @@
 document.documentElement.classList.add('js-ready');
 
 (() => {
-  const href = 'design-polish.css?v=banner-title-20260524';
+  const href = 'design-polish.css?v=speaker-affiliations-20260524';
   if (!document.querySelector('link[href^="design-polish.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -13,6 +13,41 @@ document.documentElement.classList.add('js-ready');
 (() => {
   document.querySelectorAll('.brand-title').forEach((title) => {
     title.innerHTML = '<strong>Tees Neurodevelopmental</strong><em>Paediatrics Symposium</em>';
+  });
+})();
+
+(() => {
+  const speakerDetails = new Map([
+    ['Dr Yasmin DeAlwis', 'Consultant Neurodisability Paediatrician, Great North Children’s Hospital, Newcastle upon Tyne Hospitals NHS Foundation Trust, UK'],
+    ['Dr Mark Aszkenasy', 'Consultant Paediatrician with expertise in autism and community paediatrics, University Hospital of North Tees, University Hospitals Tees, UK'],
+    ['Dr Santosh Mordekar', 'Consultant Paediatric Neurologist, Sheffield Children’s NHS Foundation Trust, UK'],
+    ['Dr Ram Kumar', 'Consultant Paediatric Neurologist, Lancashire Teaching Hospitals NHS Foundation Trust, UK'],
+    ['Dr V Ramesh', 'Honorary Consultant Paediatric Neurologist, Bristol Children’s Hospital, University Hospitals Bristol and Weston NHS Foundation Trust, UK'],
+    ['Dr Bernd C Schwahn', 'Consultant Clinical Paediatrician in Inherited Metabolic Medicine, Royal Manchester Children’s Hospital, Manchester University NHS Foundation Trust, UK'],
+    ['Dr Helen Aspey', 'Consultant Community Paediatrician and lead for the Children’s Holistic Palliative Care Service (CHIPS), Newcastle upon Tyne Hospitals NHS Foundation Trust, UK'],
+    ['Prof Sam Amin', 'Consultant Paediatric Neurologist, Bristol Children’s Hospital, University Hospitals Bristol and Weston NHS Foundation Trust, UK'],
+    ['Dr Ruth Richardson', 'Consultant Clinical Geneticist, Newcastle upon Tyne Hospitals NHS Foundation Trust, UK'],
+    ['Dr Vicki Walker', 'Consultant Paediatrician, Sherwood Forest Hospitals NHS Foundation Trust, UK'],
+    ['Dr Jeen Tan', 'Paediatric Neurologist, Manchester University NHS Foundation Trust, UK'],
+    ['Dr Olivia Kenneally', 'Child and Educational Psychologist and Paediatric Neuropsychologist, Evelina London Children’s Hospital, UK'],
+    ['Dr Sarah Mills', 'Consultant Community Paediatrician, Sunderland and South Tyneside NHS Foundation Trust, UK'],
+    ['Dr Ramesh Kumar and Ms Debbie Dack', 'Consultant Paediatrician and Transition Specialist Nurse, The James Cook University Hospital, University Hospitals Tees, UK']
+  ]);
+
+  document.querySelectorAll('.session span').forEach((speaker) => {
+    const name = speaker.textContent.trim();
+    if (!speakerDetails.has(name) || speaker.parentElement?.querySelector('.speaker-affiliation')) return;
+    const affiliation = document.createElement('em');
+    affiliation.className = 'speaker-affiliation';
+    affiliation.textContent = speakerDetails.get(name);
+    speaker.insertAdjacentElement('afterend', affiliation);
+
+    if (name === 'Dr Mark Aszkenasy' && !speaker.parentElement?.querySelector('.speaker-note')) {
+      const note = document.createElement('em');
+      note.className = 'speaker-note';
+      note.textContent = 'Speaker note: author of The Genetics of Autism, a practical guide for families and professionals.';
+      affiliation.insertAdjacentElement('afterend', note);
+    }
   });
 })();
 
