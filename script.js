@@ -11,6 +11,16 @@ document.documentElement.classList.add('js-ready');
 })();
 
 (() => {
+  const href = 'conference-refresh.css?v=programme-page-20260524';
+  if (!document.querySelector('link[href^="conference-refresh.css"]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  }
+})();
+
+(() => {
   document.querySelectorAll('.brand-title').forEach((title) => {
     title.innerHTML = '<strong>Tees Neurodevelopmental</strong><em>Paediatrics Symposium</em>';
   });
@@ -19,7 +29,7 @@ document.documentElement.classList.add('js-ready');
 (() => {
   const speakerDetails = new Map([
     ['Dr Yasmin DeAlwis', 'Consultant Neurodisability Paediatrician, Great North Children’s Hospital, Newcastle upon Tyne Hospitals NHS Foundation Trust, UK'],
-    ['Dr Mark Aszkenasy', 'Consultant Paediatrician with expertise in autism and community paediatrics, University Hospital of North Tees, University Hospitals Tees, UK'],
+    ['Dr Mark Aszkenasy', 'Consultant Paediatrician with expertise in autism and community paediatrics, University Hospital Tees NHS Foundation Trust, UK'],
     ['Dr Santosh Mordekar', 'Consultant Paediatric Neurologist, Sheffield Children’s NHS Foundation Trust, UK'],
     ['Dr Ram Kumar', 'Consultant Paediatric Neurologist, Lancashire Teaching Hospitals NHS Foundation Trust, UK'],
     ['Dr V Ramesh', 'Honorary Consultant Paediatric Neurologist, Bristol Children’s Hospital, University Hospitals Bristol and Weston NHS Foundation Trust, UK'],
@@ -31,7 +41,7 @@ document.documentElement.classList.add('js-ready');
     ['Dr Jeen Tan', 'Paediatric Neurologist, Manchester University NHS Foundation Trust, UK'],
     ['Dr Olivia Kenneally', 'Child and Educational Psychologist and Paediatric Neuropsychologist, Evelina London Children’s Hospital, UK'],
     ['Dr Sarah Mills', 'Consultant Community Paediatrician, Sunderland and South Tyneside NHS Foundation Trust, UK'],
-    ['Dr Ramesh Kumar and Ms Debbie Dack', 'Consultant Paediatrician and Transition Specialist Nurse, The James Cook University Hospital, University Hospitals Tees, UK']
+    ['Dr Ramesh Kumar and Ms Debbie Dack', 'Consultant Paediatrician and Transition Specialist Nurse, The James Cook University Hospital, University Hospital Tees NHS Foundation Trust, UK']
   ]);
 
   document.querySelectorAll('.session span').forEach((speaker) => {
@@ -124,7 +134,7 @@ document.documentElement.classList.add('js-ready');
       <a class="button primary" href="${bookingUrl}">Book</a>`;
     document.body.appendChild(bar);
     const updateBar = () => {
-      const programme = document.querySelector('.programme-board');
+      const programme = document.querySelector('.tnp-programme, .programme-board');
       const trigger = programme ? programme.getBoundingClientRect().top + window.scrollY - 180 : 1400;
       const shouldShow = window.scrollY > trigger && window.innerWidth <= 980;
       bar.classList.toggle('is-visible', shouldShow);
