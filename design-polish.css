@@ -1,1 +1,389 @@
-/* Design polish layer for the Tees Neurodevelopmental Symposium site.\n   This file intentionally sits after the original stylesheet so it can refine the existing design without destabilising the site. */\n\n:root{\n  --polish-blue:#005eb8;\n  --polish-dark:#003087;\n  --polish-aqua:#00a9ce;\n  --polish-green:#78be20;\n  --polish-ink:#061b31;\n  --polish-slate:#4f657f;\n  --polish-line:#d9e7f5;\n  --polish-soft:#f3f8fd;\n  --polish-focus:#ffdd00;\n}\n\nbody{\n  background:\n    radial-gradient(circle at 8% 2%, rgba(0,169,206,.14) 0, transparent 28rem),\n    radial-gradient(circle at 92% 8%, rgba(120,190,32,.12) 0, transparent 25rem),\n    linear-gradient(180deg,#ffffff 0%,#f6fbff 46%,#eef6ff 100%);\n}\n\na:focus-visible,\nbutton:focus-visible,\ntextarea:focus-visible{\n  outline:3px solid var(--polish-focus)!important;\n  outline-offset:4px;\n}\n\n.hero{\n  padding-top:72px;\n}\n\n.hero-copy{\n  position:relative;\n}\n\n.hero h1{\n  max-width:880px;\n  text-wrap:balance;\n}\n\n.hero-lede{\n  max-width:760px;\n}\n\n.hero-actions .button.primary,\n.nav-cta{\n  letter-spacing:.01em;\n}\n\n.quick-facts{\n  grid-template-columns:repeat(3,minmax(0,1fr));\n}\n\n.quick-facts .cost-fact{\n  grid-column:1/-1;\n  display:grid;\n  grid-template-columns:minmax(120px,180px) 1fr;\n  gap:8px 18px;\n  align-items:start;\n}\n\n.cost-fact dd{\n  font-size:clamp(28px,4vw,42px);\n}\n\n.cost-note{\n  max-width:780px;\n}\n\n.trust-strip span{\n  min-height:58px;\n}\n\n.why-attend{\n  max-width:1180px;\n  margin:54px auto 78px;\n  padding:38px;\n  border:1px solid rgba(217,231,245,.95);\n  border-radius:30px;\n  background:rgba(255,255,255,.86);\n  box-shadow:rgba(0,55,112,.11) 0 24px 58px -32px;\n}\n\n.why-attend__head{\n  max-width:760px;\n  margin-bottom:24px;\n}\n\n.why-attend__head h2{\n  font-size:clamp(34px,5vw,58px);\n  margin-bottom:10px;\n}\n\n.why-attend__head p{\n  color:var(--polish-slate);\n  font-size:21px;\n}\n\n.why-attend__grid{\n  display:grid;\n  grid-template-columns:repeat(4,minmax(0,1fr));\n  gap:14px;\n}\n\n.why-attend__item{\n  border:1px solid var(--polish-line);\n  border-radius:22px;\n  background:linear-gradient(180deg,#fff,#f9fcff);\n  padding:20px;\n}\n\n.why-attend__item span{\n  display:inline-grid;\n  place-items:center;\n  width:40px;\n  height:40px;\n  border-radius:12px;\n  margin-bottom:14px;\n  background:var(--polish-blue);\n  color:#fff;\n  font-weight:800;\n}\n\n.why-attend__item strong{\n  display:block;\n  font-size:22px;\n  line-height:1.05;\n  letter-spacing:-.02em;\n  margin-bottom:8px;\n}\n\n.why-attend__item p{\n  margin:0;\n  color:var(--polish-slate);\n}\n\n.session{\n  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;\n}\n\n.session:not(.break):hover{\n  transform:translateY(-2px);\n  border-color:rgba(0,94,184,.32);\n  box-shadow:rgba(0,55,112,.12) 0 18px 34px -26px;\n}\n\n.session:not(.break) strong{\n  text-wrap:balance;\n}\n\n.session.break{\n  background:linear-gradient(180deg,#f3f9ff,#eaf5ff);\n}\n\n.notes-privacy-box{\n  display:grid;\n  grid-template-columns:auto 1fr;\n  gap:14px;\n  align-items:start;\n  max-width:860px;\n  margin:22px auto 4px;\n  padding:16px 18px;\n  border:1px solid #f1c40f;\n  border-left-width:7px;\n  border-radius:18px;\n  background:#fff9d7;\n  color:#3d3100;\n}\n\n.notes-privacy-box strong{\n  display:block;\n  margin-bottom:3px;\n}\n\n.notes-privacy-box p{\n  margin:0;\n}\n\n.notes-privacy-box__icon{\n  width:34px;\n  height:34px;\n  border-radius:999px;\n  display:grid;\n  place-items:center;\n  background:#f1c40f;\n  color:#2d2400;\n  font-weight:900;\n}\n\n.final-cta{\n  max-width:1180px;\n  margin:74px auto 28px;\n  padding:42px;\n  border-radius:34px;\n  background:\n    radial-gradient(circle at 82% 20%,rgba(120,190,32,.28),transparent 22rem),\n    linear-gradient(135deg,var(--polish-dark),var(--polish-blue) 58%,#0072ce);\n  color:#fff;\n  box-shadow:rgba(0,55,112,.25) 0 28px 70px -34px;\n}\n\n.final-cta h2{\n  font-size:clamp(36px,5vw,64px);\n  margin-bottom:12px;\n}\n\n.final-cta p{\n  max-width:780px;\n  color:rgba(255,255,255,.86);\n  font-size:21px;\n}\n\n.final-cta__actions{\n  display:flex;\n  gap:12px;\n  flex-wrap:wrap;\n  margin-top:24px;\n}\n\n.final-cta .button.primary{\n  background:#fff;\n  color:var(--polish-blue);\n}\n\n.final-cta .button.secondary{\n  color:#fff;\n  border-color:rgba(255,255,255,.55);\n  background:rgba(255,255,255,.12);\n}\n\n.sticky-booking-bar{\n  position:fixed;\n  left:50%;\n  bottom:calc(14px + env(safe-area-inset-bottom));\n  transform:translateX(-50%) translateY(120%);\n  z-index:80;\n  width:min(680px,calc(100% - 28px));\n  display:flex;\n  align-items:center;\n  justify-content:space-between;\n  gap:12px;\n  padding:12px 12px 12px 18px;\n  border:1px solid rgba(217,231,245,.95);\n  border-radius:999px;\n  background:rgba(255,255,255,.94);\n  backdrop-filter:blur(16px);\n  box-shadow:rgba(0,55,112,.22) 0 22px 60px -28px;\n  transition:transform .24s ease;\n}\n\n.sticky-booking-bar.is-visible{\n  transform:translateX(-50%) translateY(0);\n}\n\n.sticky-booking-bar__text{\n  display:flex;\n  flex-direction:column;\n  min-width:0;\n}\n\n.sticky-booking-bar__text strong{\n  font-size:16px;\n  line-height:1.1;\n  color:var(--polish-ink);\n}\n\n.sticky-booking-bar__text span{\n  color:var(--polish-slate);\n  font-size:14px;\n  line-height:1.15;\n  white-space:nowrap;\n  overflow:hidden;\n  text-overflow:ellipsis;\n}\n\n.sticky-booking-bar .button{\n  border-radius:999px;\n  white-space:nowrap;\n  padding:10px 16px;\n}\n\n@media (max-width:980px){\n  .quick-facts,\n  .why-attend__grid{\n    grid-template-columns:repeat(2,minmax(0,1fr));\n  }\n\n  .why-attend,\n  .final-cta{\n    margin-left:18px;\n    margin-right:18px;\n  }\n}\n\n@media (max-width:720px){\n  .hero{\n    padding-top:42px;\n  }\n\n  .hero h1{\n    font-size:clamp(44px,15vw,60px);\n    line-height:.94;\n  }\n\n  .hero-lede{\n    font-size:20px;\n  }\n\n  .quick-facts,\n  .quick-facts .cost-fact,\n  .why-attend__grid{\n    grid-template-columns:1fr;\n  }\n\n  .why-attend,\n  .final-cta{\n    padding:28px 20px;\n    border-radius:24px;\n  }\n\n  .notes-privacy-box{\n    grid-template-columns:1fr;\n  }\n\n  .sticky-booking-bar{\n    border-radius:22px;\n    align-items:stretch;\n    flex-direction:column;\n  }\n\n  .sticky-booking-bar .button{\n    width:100%;\n  }\n}\n\n@media print{\n  .sticky-booking-bar,\n  .back-to-top,\n  .site-menu,\n  .brand-menu-toggle,\n  .nav-cta{\n    display:none!important;\n  }\n}\n
+/* Design polish layer for the Tees Neurodevelopmental Symposium site.
+   This file intentionally sits after the original stylesheet so it can refine the existing design without destabilising the site. */
+
+:root{
+  --polish-blue:#005eb8;
+  --polish-dark:#003087;
+  --polish-aqua:#00a9ce;
+  --polish-green:#78be20;
+  --polish-ink:#061b31;
+  --polish-slate:#4f657f;
+  --polish-line:#d9e7f5;
+  --polish-soft:#f3f8fd;
+  --polish-focus:#ffdd00;
+  --safe-gutter:clamp(18px,5vw,34px);
+}
+
+body{
+  background:
+    radial-gradient(circle at 8% 2%, rgba(0,169,206,.14) 0, transparent 28rem),
+    radial-gradient(circle at 92% 8%, rgba(120,190,32,.12) 0, transparent 25rem),
+    linear-gradient(180deg,#ffffff 0%,#f6fbff 46%,#eef6ff 100%);
+}
+
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible{
+  outline:3px solid var(--polish-focus)!important;
+  outline-offset:4px;
+}
+
+.hero{
+  padding-top:72px;
+}
+
+.hero-copy{
+  position:relative;
+}
+
+.hero h1{
+  max-width:880px;
+  text-wrap:balance;
+}
+
+.hero-lede{
+  max-width:760px;
+}
+
+.hero-actions .button.primary,
+.nav-cta{
+  letter-spacing:.01em;
+}
+
+.quick-facts{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.quick-facts .cost-fact{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:minmax(120px,180px) 1fr;
+  gap:8px 18px;
+  align-items:start;
+}
+
+.cost-fact dd{
+  font-size:clamp(28px,4vw,42px);
+}
+
+.cost-note{
+  max-width:780px;
+}
+
+.trust-strip span{
+  min-height:58px;
+}
+
+.why-attend{
+  box-sizing:border-box;
+  width:min(1180px,calc(100% - (var(--safe-gutter) * 2)));
+  max-width:1180px;
+  margin:54px auto 78px;
+  padding:38px;
+  border:1px solid rgba(217,231,245,.95);
+  border-radius:30px;
+  background:rgba(255,255,255,.86);
+  box-shadow:rgba(0,55,112,.11) 0 24px 58px -32px;
+  overflow:hidden;
+}
+
+.why-attend__head{
+  max-width:760px;
+  margin-bottom:24px;
+}
+
+.why-attend__head h2{
+  font-size:clamp(34px,5vw,58px);
+  margin-bottom:10px;
+  max-width:100%;
+  overflow-wrap:anywhere;
+  text-wrap:balance;
+}
+
+.why-attend__head p{
+  color:var(--polish-slate);
+  font-size:21px;
+}
+
+.why-attend__grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+
+.why-attend__item{
+  border:1px solid var(--polish-line);
+  border-radius:22px;
+  background:linear-gradient(180deg,#fff,#f9fcff);
+  padding:20px;
+  min-width:0;
+}
+
+.why-attend__item span{
+  display:inline-grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  margin-bottom:14px;
+  background:var(--polish-blue);
+  color:#fff;
+  font-weight:800;
+}
+
+.why-attend__item strong{
+  display:block;
+  font-size:22px;
+  line-height:1.05;
+  letter-spacing:-.02em;
+  margin-bottom:8px;
+}
+
+.why-attend__item p{
+  margin:0;
+  color:var(--polish-slate);
+}
+
+.session{
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.session:not(.break):hover{
+  transform:translateY(-2px);
+  border-color:rgba(0,94,184,.32);
+  box-shadow:rgba(0,55,112,.12) 0 18px 34px -26px;
+}
+
+.session:not(.break) strong{
+  text-wrap:balance;
+}
+
+.session.break{
+  background:linear-gradient(180deg,#f3f9ff,#eaf5ff);
+}
+
+.notes-privacy-box{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:14px;
+  align-items:start;
+  max-width:860px;
+  margin:22px auto 4px;
+  padding:16px 18px;
+  border:1px solid #f1c40f;
+  border-left-width:7px;
+  border-radius:18px;
+  background:#fff9d7;
+  color:#3d3100;
+}
+
+.notes-privacy-box strong{
+  display:block;
+  margin-bottom:3px;
+}
+
+.notes-privacy-box p{
+  margin:0;
+}
+
+.notes-privacy-box__icon{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:#f1c40f;
+  color:#2d2400;
+  font-weight:900;
+}
+
+.final-cta{
+  box-sizing:border-box;
+  width:min(1180px,calc(100% - (var(--safe-gutter) * 2)));
+  max-width:1180px;
+  margin:74px auto 28px;
+  padding:42px;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 82% 20%,rgba(120,190,32,.28),transparent 22rem),
+    linear-gradient(135deg,var(--polish-dark),var(--polish-blue) 58%,#0072ce);
+  color:#fff;
+  box-shadow:rgba(0,55,112,.25) 0 28px 70px -34px;
+  overflow:hidden;
+}
+
+.final-cta h2{
+  font-size:clamp(36px,5vw,64px);
+  margin-bottom:12px;
+  text-wrap:balance;
+}
+
+.final-cta p{
+  max-width:780px;
+  color:rgba(255,255,255,.86);
+  font-size:21px;
+}
+
+.final-cta__actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+
+.final-cta .button.primary{
+  background:#fff;
+  color:var(--polish-blue);
+}
+
+.final-cta .button.secondary{
+  color:#fff;
+  border-color:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.12);
+}
+
+.sticky-booking-bar{
+  position:fixed;
+  left:50%;
+  bottom:calc(14px + env(safe-area-inset-bottom));
+  transform:translateX(-50%) translateY(120%);
+  z-index:80;
+  width:min(680px,calc(100% - 28px));
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 12px 12px 18px;
+  border:1px solid rgba(217,231,245,.95);
+  border-radius:999px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);
+  box-shadow:rgba(0,55,112,.22) 0 22px 60px -28px;
+  transition:transform .24s ease;
+}
+
+.sticky-booking-bar.is-visible{
+  transform:translateX(-50%) translateY(0);
+}
+
+.sticky-booking-bar__text{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+
+.sticky-booking-bar__text strong{
+  font-size:16px;
+  line-height:1.1;
+  color:var(--polish-ink);
+}
+
+.sticky-booking-bar__text span{
+  color:var(--polish-slate);
+  font-size:14px;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.sticky-booking-bar .button{
+  border-radius:999px;
+  white-space:nowrap;
+  padding:10px 16px;
+}
+
+@media (max-width:980px){
+  .quick-facts,
+  .why-attend__grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:720px){
+  :root{
+    --safe-gutter:20px;
+  }
+
+  .hero{
+    padding-top:42px;
+  }
+
+  .hero h1{
+    font-size:clamp(44px,15vw,60px);
+    line-height:.94;
+  }
+
+  .hero-lede{
+    font-size:20px;
+  }
+
+  .quick-facts,
+  .quick-facts .cost-fact,
+  .why-attend__grid{
+    grid-template-columns:1fr;
+  }
+
+  .why-attend,
+  .final-cta{
+    width:calc(100% - 40px)!important;
+    margin-left:20px!important;
+    margin-right:20px!important;
+    padding:26px 20px;
+    border-radius:24px;
+  }
+
+  .why-attend__head h2,
+  .final-cta h2{
+    font-size:clamp(32px,11vw,44px);
+    line-height:1.02;
+  }
+
+  .why-attend__head p,
+  .final-cta p{
+    font-size:19px;
+    line-height:1.42;
+  }
+
+  .why-attend__item span{
+    display:inline-flex;
+    width:auto;
+    height:auto;
+    min-width:34px;
+    padding:6px 10px;
+    margin-right:6px;
+    margin-bottom:8px;
+  }
+
+  .why-attend__item strong{
+    display:inline;
+  }
+
+  .why-attend__item p{
+    margin-top:8px;
+  }
+
+  .notes-privacy-box{
+    grid-template-columns:1fr;
+  }
+
+  .sticky-booking-bar{
+    border-radius:22px;
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .sticky-booking-bar .button{
+    width:100%;
+  }
+}
+
+@media print{
+  .sticky-booking-bar,
+  .back-to-top,
+  .site-menu,
+  .brand-menu-toggle,
+  .nav-cta{
+    display:none!important;
+  }
+}
