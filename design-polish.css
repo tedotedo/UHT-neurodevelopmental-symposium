@@ -48,6 +48,41 @@ main,
   max-width:100%;
 }
 
+/* Banner title spacing: preserve the animation, but keep the title safely between the plus and Book buttons. */
+.brand{
+  width:43%!important;
+  left:50%!important;
+}
+
+.brand-title{
+  max-width:100%;
+}
+
+.brand strong,
+.brand em{
+  font-size:clamp(21px,3.7vw,48px)!important;
+  line-height:.98!important;
+  letter-spacing:-.03em!important;
+  text-wrap:balance;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+
+.brand-menu-toggle{
+  left:4%!important;
+  width:12%!important;
+  max-width:176px;
+}
+
+.nav-cta{
+  right:4%!important;
+  width:18%!important;
+  max-width:236px;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
 .hero{
   padding-top:72px;
 }
@@ -342,29 +377,30 @@ main,
   }
 
   .brand-menu-toggle{
-    left:14px!important;
-    width:58px!important;
-    height:58px!important;
+    left:12px!important;
+    width:54px!important;
+    height:54px!important;
   }
 
   .brand{
     left:50%!important;
-    width:54%!important;
+    width:45%!important;
   }
 
   .brand strong,
   .brand em{
-    font-size:clamp(18px,6vw,24px)!important;
-    line-height:1.03!important;
+    font-size:clamp(15px,4.8vw,20px)!important;
+    line-height:1.02!important;
+    letter-spacing:-.02em!important;
   }
 
   .nav-cta{
-    right:14px!important;
-    width:74px!important;
-    height:58px!important;
+    right:12px!important;
+    width:68px!important;
+    height:54px!important;
     padding:0!important;
-    border-radius:16px!important;
-    font-size:18px!important;
+    border-radius:15px!important;
+    font-size:17px!important;
   }
 
   .hero{
