@@ -20,7 +20,7 @@ document.documentElement.classList.add('js-ready');
 
   document.querySelectorAll('.tnp-speaker').forEach((speaker) => {
     const name = speaker.textContent.trim();
-    const session = speaker.closest('.tnp-session') || speaker.parentElement;
+    const session = speaker.closest('.tnp-session');
     if (!session || !speakerDetails.has(name) || session.querySelector('.speaker-affiliation')) return;
 
     const affiliation = document.createElement('em');
