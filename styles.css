@@ -184,3 +184,42 @@ body.menu-open{overflow:hidden;touch-action:none;overscroll-behavior:none;}
   .stat-one{right:0;top:auto;bottom:28px;}
   .stat-two{left:0;top:auto;bottom:28px;}
 }
+
+/* Resource link layout fix: resource pages use direct link-card markup, so the anchors must be block/grid cards rather than inline links. */
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:28px;
+}
+.resource-grid .resource-card,
+.resources-list .resource-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-width:0;
+  height:100%;
+  overflow:visible;
+}
+.resource-grid .resource-card strong,
+.resources-list .resource-card h3{
+  display:block;
+  font-size:clamp(22px,3vw,28px);
+  line-height:1.08;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+.resource-grid .resource-card em{
+  display:block;
+  font-style:normal;
+  color:var(--slate);
+  font-weight:600;
+  line-height:1.32;
+}
+@media (max-width:720px){
+  .section.resources{margin-left:18px;margin-right:18px;}
+  .resource-grid,
+  .resources-list{grid-template-columns:1fr;gap:14px;}
+  .resource-grid .resource-card,
+  .resources-list .resource-card{padding:20px;border-radius:20px;}
+}
