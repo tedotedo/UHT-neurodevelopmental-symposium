@@ -1,7 +1,7 @@
 document.documentElement.classList.add('js-ready');
 
 (() => {
-  const href = 'design-polish.css?v=symposium-wording-20260524';
+  const href = 'design-polish.css?v=hero-gradient-20260524';
   if (!document.querySelector('link[href^="design-polish.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -12,7 +12,7 @@ document.documentElement.classList.add('js-ready');
 })();
 
 (() => {
-  const href = 'conference-refresh.css?v=symposium-wording-20260524';
+  const href = 'conference-refresh.css?v=hero-gradient-20260524';
   const existing = document.querySelector('link[href^="conference-refresh.css"]');
   if (!existing) {
     const link = document.createElement('link');
