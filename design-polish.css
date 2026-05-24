@@ -226,41 +226,6 @@ main,
   background:linear-gradient(180deg,#f3f9ff,#eaf5ff);
 }
 
-.notes-privacy-box{
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:14px;
-  align-items:start;
-  max-width:860px;
-  margin:22px auto 4px;
-  padding:16px 18px;
-  border:1px solid #f1c40f;
-  border-left-width:7px;
-  border-radius:18px;
-  background:#fff9d7;
-  color:#3d3100;
-}
-
-.notes-privacy-box strong{
-  display:block;
-  margin-bottom:3px;
-}
-
-.notes-privacy-box p{
-  margin:0;
-}
-
-.notes-privacy-box__icon{
-  width:34px;
-  height:34px;
-  border-radius:999px;
-  display:grid;
-  place-items:center;
-  background:#f1c40f;
-  color:#2d2400;
-  font-weight:900;
-}
-
 .final-cta{
   box-sizing:border-box;
   width:min(1180px,calc(100% - (var(--safe-gutter) * 2)));
@@ -516,10 +481,6 @@ main,
 
   .why-attend__item p{
     margin-top:8px;
-  }
-
-  .notes-privacy-box{
-    grid-template-columns:1fr;
   }
 
   .sticky-booking-bar{

@@ -1,28 +1,41 @@
 document.documentElement.classList.add('js-ready');
 
 (() => {
-  const href = 'design-polish.css?v=speaker-affiliations-20260524';
+  const href = 'design-polish.css?v=email-note-20260524';
   if (!document.querySelector('link[href^="design-polish.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
-    document.head.appendChild(link);
+    const refreshLink = document.querySelector('link[href^="conference-refresh.css"]');
+    document.head.insertBefore(link, refreshLink || null);
   }
 })();
 
 (() => {
-  const href = 'conference-refresh.css?v=rate-callout-20260524';
-  if (!document.querySelector('link[href^="conference-refresh.css"]')) {
+  const href = 'conference-refresh.css?v=email-note-20260524';
+  const existing = document.querySelector('link[href^="conference-refresh.css"]');
+  if (!existing) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
     document.head.appendChild(link);
+  } else if (existing.nextElementSibling) {
+    document.head.appendChild(existing);
   }
 })();
 
 (() => {
   document.querySelectorAll('.brand-title').forEach((title) => {
-    title.innerHTML = '<strong>University Hospital Tees</strong><em>NHS Foundation Trust</em>';
+    title.innerHTML = '<strong>Tees Neurodevelopmental</strong><em>Conference</em><span class="brand-trust">University Hospital Tees NHS Foundation Trust</span>';
+  });
+})();
+
+(() => {
+  const reducedRateEmail = 'michelle.leahy1@nhs.net';
+  const reducedRateHref = `mailto:${reducedRateEmail}?subject=${encodeURIComponent('Reduced rate booking information')}`;
+  document.querySelectorAll(`a[href^="mailto:${reducedRateEmail}"]`).forEach((link) => {
+    link.setAttribute('href', reducedRateHref);
+    link.setAttribute('target', '_self');
   });
 })();
 
@@ -51,13 +64,15 @@ document.documentElement.classList.add('js-ready');
     affiliation.className = 'speaker-affiliation';
     affiliation.textContent = speakerDetails.get(name);
     speaker.insertAdjacentElement('afterend', affiliation);
+  });
 
-    if (name === 'Dr Mark Aszkenasy' && !speaker.parentElement?.querySelector('.speaker-note')) {
-      const note = document.createElement('em');
-      note.className = 'speaker-note';
-      note.textContent = 'Speaker note: author of The Genetics of Autism, a practical guide for families and professionals.';
-      affiliation.insertAdjacentElement('afterend', note);
-    }
+  document.querySelectorAll('.tnp-speaker').forEach((speaker) => {
+    const name = speaker.firstChild?.textContent.trim() || speaker.textContent.trim();
+    if (!speakerDetails.has(name) || speaker.querySelector('.tnp-affiliation')) return;
+    const affiliation = document.createElement('span');
+    affiliation.className = 'tnp-affiliation';
+    affiliation.textContent = speakerDetails.get(name);
+    speaker.appendChild(affiliation);
   });
 })();
 
@@ -97,17 +112,6 @@ document.documentElement.classList.add('js-ready');
     trustStrip.insertAdjacentElement('afterend', section);
   }
 
-  const privacyNote = document.querySelector('.privacy-note');
-  if (privacyNote && !document.querySelector('.notes-privacy-box')) {
-    const box = document.createElement('div');
-    box.className = 'notes-privacy-box';
-    box.setAttribute('role', 'note');
-    box.innerHTML = `
-      <span class="notes-privacy-box__icon" aria-hidden="true">!</span>
-      <div><strong>Do not enter identifiable patient information.</strong><p>Notes are saved only in this browser using local storage. They are not uploaded to the conference organisers.</p></div>`;
-    privacyNote.replaceWith(box);
-  }
-
   const venueSection = document.querySelector('.section.venue, #venue');
   if (main && venueSection && !document.querySelector('.final-cta')) {
     const section = document.createElement('section');
@@ -119,7 +123,7 @@ document.documentElement.classList.add('js-ready');
       <p>Neurodevelopmental and paediatric neurology updates for paediatricians, trainees, nurses, therapists and allied professionals.</p>
       <div class="final-cta__actions">
         <a class="button primary" href="${bookingUrl}">Book your place</a>
-        <a class="button secondary" href="mailto:michelle.leahy1@nhs.net">Ask about reduced rates</a>
+        <a class="button secondary" href="mailto:michelle.leahy1@nhs.net?subject=Reduced%20rate%20booking%20information">Ask about reduced rates</a>
         <a class="button secondary" href="programme.html">View programme</a>
       </div>`;
     venueSection.insertAdjacentElement('afterend', section);
@@ -252,8 +256,6 @@ document.documentElement.classList.add('js-ready');
     const content = [
       '# 15th Tees Neurodevelopmental Paediatrics Symposium notes',
       `Exported: ${now.toLocaleString()}`,
-      '',
-      'Private delegate notes. Do not include identifiable patient information.',
       '',
       ...sections,
       ''
