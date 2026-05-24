@@ -1,13 +1,19 @@
 document.documentElement.classList.add('js-ready');
 
 (() => {
-  const href = 'design-polish.css?v=mobile-booking-bar-20260524';
+  const href = 'design-polish.css?v=banner-title-20260524';
   if (!document.querySelector('link[href^="design-polish.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
     document.head.appendChild(link);
   }
+})();
+
+(() => {
+  document.querySelectorAll('.brand-title').forEach((title) => {
+    title.innerHTML = '<strong>Tees Neurodevelopmental</strong><em>Paediatrics Symposium</em>';
+  });
 })();
 
 (() => {
