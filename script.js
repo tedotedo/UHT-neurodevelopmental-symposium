@@ -1,32 +1,6 @@
 document.documentElement.classList.add('js-ready');
 
 (() => {
-  const href = 'design-polish.css?v=speaker-affiliations-20260524';
-  if (!document.querySelector('link[href^="design-polish.css"]')) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    document.head.appendChild(link);
-  }
-})();
-
-(() => {
-  const href = 'conference-refresh.css?v=rate-callout-20260524';
-  if (!document.querySelector('link[href^="conference-refresh.css"]')) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    document.head.appendChild(link);
-  }
-})();
-
-(() => {
-  document.querySelectorAll('.brand-title').forEach((title) => {
-    title.innerHTML = '<strong>University Hospital Tees</strong><em>NHS Foundation Trust</em>';
-  });
-})();
-
-(() => {
   const speakerDetails = new Map([
     ['Dr Yasmin DeAlwis', 'Consultant Neurodisability Paediatrician, Great North Children’s Hospital, Newcastle upon Tyne Hospitals NHS Foundation Trust, UK'],
     ['Dr Mark Aszkenasy', 'Consultant Paediatrician with expertise in autism and community paediatrics, University Hospital Tees NHS Foundation Trust, UK'],
@@ -44,15 +18,17 @@ document.documentElement.classList.add('js-ready');
     ['Dr Ramesh Kumar and Ms Debbie Dack', 'Consultant Paediatrician and Transition Specialist Nurse, The James Cook University Hospital, University Hospital Tees NHS Foundation Trust, UK']
   ]);
 
-  document.querySelectorAll('.session span').forEach((speaker) => {
+  document.querySelectorAll('.tnp-speaker').forEach((speaker) => {
     const name = speaker.textContent.trim();
-    if (!speakerDetails.has(name) || speaker.parentElement?.querySelector('.speaker-affiliation')) return;
+    const session = speaker.closest('.tnp-session') || speaker.parentElement;
+    if (!session || !speakerDetails.has(name) || session.querySelector('.speaker-affiliation')) return;
+
     const affiliation = document.createElement('em');
     affiliation.className = 'speaker-affiliation';
     affiliation.textContent = speakerDetails.get(name);
     speaker.insertAdjacentElement('afterend', affiliation);
 
-    if (name === 'Dr Mark Aszkenasy' && !speaker.parentElement?.querySelector('.speaker-note')) {
+    if (name === 'Dr Mark Aszkenasy' && !session.querySelector('.speaker-note')) {
       const note = document.createElement('em');
       note.className = 'speaker-note';
       note.textContent = 'Speaker note: author of The Genetics of Autism, a practical guide for families and professionals.';
@@ -62,96 +38,19 @@ document.documentElement.classList.add('js-ready');
 })();
 
 (() => {
-  const bookingUrl = 'https://events.southtees.nhs.uk/events/15th-tees-neuro-developmental-paediatrics-symposium-6th-7th-july-2026/';
-  const main = document.querySelector('main');
-  const trustStrip = document.querySelector('.trust-strip');
-
-  const notesNav = Array.from(document.querySelectorAll('.nav a')).find((link) => link.getAttribute('href') === 'notes.html');
-  if (notesNav) notesNav.textContent = 'My notes';
-  const notesMenu = Array.from(document.querySelectorAll('.site-menu-grid a')).find((link) => link.getAttribute('href') === 'notes.html');
-  if (notesMenu) {
-    const label = notesMenu.querySelector('span');
-    const title = notesMenu.querySelector('strong');
-    const description = notesMenu.querySelector('em');
-    if (label) label.textContent = 'My notes';
-    if (title) title.textContent = 'Talk notebook';
-    if (description) description.textContent = 'Private notes saved on this device';
-  }
-
-  if (main && trustStrip && !document.querySelector('.why-attend')) {
-    const section = document.createElement('section');
-    section.className = 'why-attend';
-    section.setAttribute('aria-labelledby', 'why-attend-title');
-    section.innerHTML = `
-      <div class="why-attend__head">
-        <p class="eyebrow blue">Why attend?</p>
-        <h2 id="why-attend-title">Practical neurodevelopmental learning for everyday clinical work.</h2>
-        <p>Two focused days bringing together paediatric neurodevelopment, neurology, genetics, disability, mental health, transition and complex care.</p>
-      </div>
-      <div class="why-attend__grid">
-        <article class="why-attend__item"><span aria-hidden="true">1</span><strong>Clinically focused updates</strong><p>Talks are framed around assessment, management, counselling and service actions.</p></article>
-        <article class="why-attend__item"><span aria-hidden="true">2</span><strong>Broad neurodisability scope</strong><p>Cerebral palsy, autism genetics, epilepsy, movement disorders, FASD, transition and more.</p></article>
-        <article class="why-attend__item"><span aria-hidden="true">3</span><strong>Named specialist speakers</strong><p>Each session is mapped to the actual speaker and timetable so delegates can plan the day.</p></article>
-        <article class="why-attend__item"><span aria-hidden="true">4</span><strong>Built-in delegate notes</strong><p>Private lecture-linked notes can be saved locally, downloaded or printed after the event.</p></article>
-      </div>`;
-    trustStrip.insertAdjacentElement('afterend', section);
-  }
-
-  const privacyNote = document.querySelector('.privacy-note');
-  if (privacyNote && !document.querySelector('.notes-privacy-box')) {
-    const box = document.createElement('div');
-    box.className = 'notes-privacy-box';
-    box.setAttribute('role', 'note');
-    box.innerHTML = `
-      <span class="notes-privacy-box__icon" aria-hidden="true">!</span>
-      <div><strong>Do not enter identifiable patient information.</strong><p>Notes are saved only in this browser using local storage. They are not uploaded to the conference organisers.</p></div>`;
-    privacyNote.replaceWith(box);
-  }
-
-  const venueSection = document.querySelector('.section.venue, #venue');
-  if (main && venueSection && !document.querySelector('.final-cta')) {
-    const section = document.createElement('section');
-    section.className = 'final-cta';
-    section.setAttribute('aria-labelledby', 'final-cta-title');
-    section.innerHTML = `
-      <p class="eyebrow inverted">Ready to attend?</p>
-      <h2 id="final-cta-title">Join colleagues for two focused days of practical learning.</h2>
-      <p>Neurodevelopmental and paediatric neurology updates for paediatricians, trainees, nurses, therapists and allied professionals.</p>
-      <div class="final-cta__actions">
-        <a class="button primary" href="${bookingUrl}">Book your place</a>
-        <a class="button secondary" href="mailto:michelle.leahy1@nhs.net">Ask about reduced rates</a>
-        <a class="button secondary" href="programme.html">View programme</a>
-      </div>`;
-    venueSection.insertAdjacentElement('afterend', section);
-  }
-
-  if (!document.querySelector('.sticky-booking-bar')) {
-    const bar = document.createElement('aside');
-    bar.className = 'sticky-booking-bar';
-    bar.setAttribute('aria-label', 'Booking shortcut');
-    bar.innerHTML = `
-      <div class="sticky-booking-bar__text"><strong>Reduced rate available</strong><span>For Therapists, Non-clinical staff and Paediatric trainees</span></div>
-      <a class="button primary" href="${bookingUrl}">Book</a>`;
-    document.body.appendChild(bar);
-    const updateBar = () => {
-      const programme = document.querySelector('.tnp-programme, .programme-board');
-      const trigger = programme ? programme.getBoundingClientRect().top + window.scrollY - 180 : 1400;
-      const shouldShow = window.scrollY > trigger && window.innerWidth <= 980;
-      bar.classList.toggle('is-visible', shouldShow);
-    };
-    window.addEventListener('scroll', updateBar, { passive: true });
-    window.addEventListener('resize', updateBar);
-    updateBar();
-  }
-})();
-
-(() => {
   const toggle = document.querySelector('.brand-menu-toggle');
   const menu = document.getElementById('site-menu');
   const close = document.querySelector('.site-menu-close');
-  if (!toggle || !menu) return;
+  const panel = menu?.querySelector('.site-menu-panel');
+  if (!toggle || !menu || !panel) return;
 
   let lockedScrollY = 0;
+  let restoreFocusTo = null;
+
+  const getFocusableElements = () =>
+    Array.from(
+      menu.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    ).filter((el) => !el.closest('[hidden]'));
 
   const lockPageScroll = () => {
     lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
@@ -176,15 +75,56 @@ document.documentElement.classList.add('js-ready');
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
     document.body.classList.toggle('menu-open', open);
-    if (open) lockPageScroll();
-    else unlockPageScroll();
+
+    if (open) {
+      restoreFocusTo = document.activeElement instanceof HTMLElement ? document.activeElement : toggle;
+      lockPageScroll();
+      requestAnimationFrame(() => {
+        const focusable = getFocusableElements();
+        (close || focusable[0] || panel).focus();
+      });
+      return;
+    }
+
+    unlockPageScroll();
+    (restoreFocusTo || toggle).focus();
   };
 
   toggle.addEventListener('click', () => setOpen(menu.hidden));
   close?.addEventListener('click', () => setOpen(false));
+
   menu.addEventListener('click', (event) => {
     if (event.target === menu) setOpen(false);
   });
+
+  menu.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      setOpen(false);
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+    const focusable = getFocusableElements();
+    if (!focusable.length) {
+      event.preventDefault();
+      panel.focus();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+
+    if (event.shiftKey && active === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !menu.hidden) setOpen(false);
   });
