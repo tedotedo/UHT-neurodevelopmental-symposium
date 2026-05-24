@@ -81,7 +81,7 @@ document.documentElement.classList.add('js-ready');
       lockPageScroll();
       requestAnimationFrame(() => {
         const focusable = getFocusableElements();
-        (close || focusable[0] || panel).focus();
+        (focusable[0] || panel).focus();
       });
       return;
     }
