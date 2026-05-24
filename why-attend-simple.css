@@ -1,0 +1,14 @@
+/* Simplify the Why attend section: move the useful card content into the paragraph visually and hide the card grid. */
+.why-attend .why-attend__head p::after{
+  content:" Talks are framed around assessment, management, counselling and service actions, with a broad neurodisability scope including cerebral palsy, autism genetics, epilepsy, movement disorders, FASD and transition.";
+}
+
+.why-attend__grid{
+  display:none!important;
+}
+
+.why-attend.why-attend--simple .why-attend__head,
+.why-attend .why-attend__head{
+  max-width:900px;
+  margin-bottom:0;
+}
