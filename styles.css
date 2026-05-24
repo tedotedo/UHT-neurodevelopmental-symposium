@@ -158,3 +158,29 @@ body.menu-open{overflow:hidden;touch-action:none;overscroll-behavior:none;}
   .venue-card p:not(.eyebrow){font-size:clamp(23px,6.5vw,34px);}
   .venue-card .button{min-height:64px;margin-top:64px;}
 }
+
+/* Mobile hero graphic fix: keep floating statistic cards below the topic chips instead of covering them. */
+@media (max-width:720px){
+  .hero-visual{min-height:680px;}
+  .card-main{inset:18px 0 206px;padding:22px;}
+  .neuro-map{height:300px;}
+  .mini-grid{gap:10px;margin-top:22px;}
+  .mini-grid span{padding:12px 8px;}
+  .stat-card{min-width:0;width:calc(50% - 7px);padding:18px 16px;border-radius:24px;z-index:3;}
+  .stat-card b{font-size:clamp(48px,17vw,72px);line-height:.95;}
+  .stat-card span{display:block;font-size:clamp(17px,5.5vw,24px);line-height:1.1;}
+  .stat-one{right:0;top:auto;bottom:28px;}
+  .stat-two{left:0;top:auto;bottom:28px;}
+}
+
+/* Keep hero statistic cards clear of the topic-chip grid on all viewports. */
+.hero-visual{min-height:760px;}
+.card-main{inset:42px 12px 170px 26px;}
+.stat-one{right:0;top:auto;bottom:16px;}
+.stat-two{left:0;top:auto;bottom:16px;}
+@media (max-width:720px){
+  .hero-visual{min-height:790px;}
+  .card-main{inset:18px 0 190px;padding:22px;}
+  .stat-one{right:0;top:auto;bottom:28px;}
+  .stat-two{left:0;top:auto;bottom:28px;}
+}
