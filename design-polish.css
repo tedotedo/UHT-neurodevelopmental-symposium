@@ -168,7 +168,7 @@ main,
 }
 
 .why-attend__head p::after{
-  content:" Talks are framed around assessment, management, counselling and service actions, with a broad neurodisability scope including cerebral palsy, autism genetics, epilepsy, movement disorders, FASD and transition.";
+  content:""!important;
 }
 
 .why-attend__grid{
