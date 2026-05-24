@@ -11,7 +11,7 @@ document.documentElement.classList.add('js-ready');
 })();
 
 (() => {
-  const href = 'conference-refresh.css?v=programme-page-20260524';
+  const href = 'conference-refresh.css?v=rate-callout-20260524';
   if (!document.querySelector('link[href^="conference-refresh.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -130,7 +130,7 @@ document.documentElement.classList.add('js-ready');
     bar.className = 'sticky-booking-bar';
     bar.setAttribute('aria-label', 'Booking shortcut');
     bar.innerHTML = `
-      <div class="sticky-booking-bar__text"><strong>6–7 July 2026 · Hardwick Hall</strong><span>£300 standard fee · reduced rates available</span></div>
+      <div class="sticky-booking-bar__text"><strong>Reduced rate available</strong><span>For Therapists, Non-clinical staff and Paediatric trainees</span></div>
       <a class="button primary" href="${bookingUrl}">Book</a>`;
     document.body.appendChild(bar);
     const updateBar = () => {
