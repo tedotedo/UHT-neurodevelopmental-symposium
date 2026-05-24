@@ -1,7 +1,7 @@
 document.documentElement.classList.add('js-ready');
 
 (() => {
-  const href = 'design-polish.css?v=polish-20260524';
+  const href = 'design-polish.css?v=mobile-booking-bar-20260524';
   if (!document.querySelector('link[href^="design-polish.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -83,7 +83,9 @@ document.documentElement.classList.add('js-ready');
       <a class="button primary" href="${bookingUrl}">Book</a>`;
     document.body.appendChild(bar);
     const updateBar = () => {
-      const shouldShow = window.scrollY > 640 && window.innerWidth <= 980;
+      const programme = document.querySelector('.programme-board');
+      const trigger = programme ? programme.getBoundingClientRect().top + window.scrollY - 180 : 1400;
+      const shouldShow = window.scrollY > trigger && window.innerWidth <= 980;
       bar.classList.toggle('is-visible', shouldShow);
     };
     window.addEventListener('scroll', updateBar, { passive: true });
