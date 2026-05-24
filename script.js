@@ -22,7 +22,7 @@ document.documentElement.classList.add('js-ready');
 
 (() => {
   document.querySelectorAll('.brand-title').forEach((title) => {
-    title.innerHTML = '<strong>Tees Neurodevelopmental</strong><em>Paediatrics Symposium</em>';
+    title.innerHTML = '<strong>University Hospital Tees</strong><em>NHS Foundation Trust</em>';
   });
 })();
 

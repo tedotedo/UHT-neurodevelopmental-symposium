@@ -375,3 +375,290 @@ body{
   .tnp-row{grid-template-columns:1fr!important;gap:5px!important}
   .tnp-time{font-size:13px!important}
 }
+
+/* Screenshot-led home refresh */
+.brand-mark span:before,
+.brand-mark span:after{display:none!important}
+.brand-mark::before{
+  content:"NHS";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:18px;
+  font-weight:900;
+  font-style:italic;
+  letter-spacing:-.06em;
+}
+.home-page .topbar{
+  border-radius:16px 16px 0 0!important;
+}
+.home-page .hero{
+  display:block;
+  min-height:510px;
+  margin:0 auto!important;
+  padding:58px 56px 30px!important;
+  border-left:1px solid var(--refresh-line);
+  border-right:1px solid var(--refresh-line);
+  background:
+    linear-gradient(90deg,#fff 0%,#f7fbff 39%,rgba(246,250,255,.76) 52%,rgba(255,255,255,0) 63%),
+    url("assets/neuro-hero-child.png") right center / 58% 100% no-repeat;
+  overflow:hidden;
+}
+.home-page .hero-copy{
+  max-width:620px;
+}
+.home-page .hero h1{
+  max-width:660px;
+  margin:14px 0 22px;
+  color:#06143a;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(46px,4.1vw,61px);
+  font-weight:700;
+  line-height:.96;
+  letter-spacing:-.04em;
+}
+.home-page .hero h1 span{
+  display:block;
+  white-space:nowrap;
+}
+.home-page .hero-lede{
+  max-width:570px;
+  color:#1f3158;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:23px;
+  line-height:1.32;
+}
+.home-page .hero-lede::after{
+  content:"";
+  display:block;
+  width:54px;
+  height:4px;
+  margin-top:22px;
+  border-radius:999px;
+  background:var(--refresh-teal);
+}
+.home-page .hero-actions{
+  margin:28px 0 24px;
+}
+.home-page .hero-actions .button{
+  min-width:168px;
+}
+.home-page .quick-facts{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:0!important;
+  max-width:680px;
+  margin:24px 0 0!important;
+}
+.home-page .quick-facts div{
+  padding:4px 22px 4px 0!important;
+  border:0!important;
+  border-right:1px solid var(--refresh-line)!important;
+  border-radius:0!important;
+  background:transparent!important;
+}
+.home-page .quick-facts div:nth-child(3){border-right:0!important}
+.home-page .quick-facts .cost-fact{display:none!important}
+.home-page .quick-facts dt{
+  color:var(--refresh-blue);
+  font-size:12px;
+}
+.home-page .quick-facts dd{
+  font-size:17px!important;
+}
+.home-page .hero-visual,
+.home-page .trust-strip,
+.home-page main > .faculty-section{display:none!important}
+
+.home-showcase{
+  width:min(var(--page-max),calc(100% - 36px));
+  max-width:var(--page-max);
+  margin:0 auto;
+  padding:18px 0 18px;
+  border-left:1px solid var(--refresh-line);
+  border-right:1px solid var(--refresh-line);
+}
+.preview-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) 330px;
+  gap:16px;
+}
+.preview-day,
+.preview-card{
+  overflow:hidden;
+  border:1px solid var(--refresh-line);
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 14px 34px -32px rgba(0,48,87,.42);
+}
+.preview-day__head{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:12px 16px;
+  color:#fff;
+  background:var(--refresh-blue-dark);
+  font-weight:800;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.preview-day__head span::after{
+  content:"•";
+  margin-left:10px;
+  opacity:.8;
+}
+.preview-day--teal .preview-day__head{
+  background:#008b8b;
+}
+.preview-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.preview-list li{
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr);
+  gap:18px;
+  padding:11px 16px;
+  border-top:1px solid #edf3f9;
+  color:var(--refresh-ink);
+  font-size:14px;
+  font-weight:700;
+  line-height:1.28;
+}
+.preview-list li:nth-child(1),
+.preview-list li:nth-child(4){
+  background:#f4f8fc;
+  color:#526781;
+}
+.preview-list time{
+  color:#23446f;
+  font-weight:800;
+  white-space:nowrap;
+}
+.preview-list em{
+  display:block;
+  margin-top:3px;
+  color:var(--refresh-blue);
+  font-style:normal;
+  font-weight:700;
+}
+.preview-day > a,
+.preview-card a,
+.rate-strip a{
+  display:inline-flex;
+  align-items:center;
+  min-height:42px;
+  padding:0 16px;
+  color:var(--refresh-blue);
+  font-weight:800;
+  text-decoration:none;
+}
+.preview-side{
+  display:grid;
+  gap:16px;
+}
+.preview-card{
+  padding:18px;
+}
+.preview-card__label{
+  margin:0 0 8px;
+  color:var(--refresh-blue);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.preview-card h2{
+  margin:0 0 12px;
+  font-size:22px;
+  line-height:1.05;
+  letter-spacing:-.02em;
+}
+.faculty-mini-list{
+  display:grid;
+  gap:12px;
+  list-style:none;
+  margin:0 0 10px;
+  padding:0;
+}
+.faculty-mini-list strong{
+  display:block;
+  color:var(--refresh-ink);
+  line-height:1.05;
+}
+.faculty-mini-list span,
+.preview-card p{
+  display:block;
+  margin-top:3px;
+  color:var(--refresh-muted);
+  font-size:14px;
+  line-height:1.25;
+}
+.preview-card--venue{
+  border-left:4px solid var(--refresh-teal);
+}
+.rate-strip{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:24px;
+  align-items:center;
+  width:min(var(--page-max),calc(100% - 36px));
+  max-width:var(--page-max);
+  margin:0 auto 54px;
+  padding:16px 56px;
+  border-radius:0 0 16px 16px;
+  color:#fff;
+  background:var(--refresh-blue);
+}
+.rate-strip span{
+  opacity:.9;
+}
+.rate-strip a{
+  color:#fff;
+  justify-self:end;
+}
+
+@media (max-width:1100px){
+  .preview-grid{grid-template-columns:1fr 1fr}
+  .preview-side{grid-column:1/-1;grid-template-columns:1fr 1fr}
+}
+
+@media (max-width:760px){
+  .home-page .topbar{border-radius:0!important}
+  .home-page .hero{
+    min-height:0;
+    padding:40px 20px 28px!important;
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.82),#fff 180px),
+      url("assets/neuro-hero-child.png") top right / auto 190px no-repeat;
+  }
+  .home-page .hero-copy{max-width:100%}
+  .home-page .hero h1{
+    max-width:100%;
+    font-size:32px!important;
+    line-height:1;
+    overflow-wrap:normal;
+    hyphens:none;
+  }
+  .home-page .hero-lede{font-size:20px}
+  .home-page .quick-facts{grid-template-columns:1fr!important;gap:10px!important}
+  .home-page .quick-facts div{border-right:0!important;border-bottom:1px solid var(--refresh-line)!important;padding:0 0 10px!important}
+  .home-showcase{width:calc(100% - 28px);border:0;padding-top:14px}
+  .preview-grid,
+  .preview-side{grid-template-columns:1fr}
+  .preview-list li{grid-template-columns:1fr;gap:4px}
+  .rate-strip{
+    width:calc(100% - 28px);
+    grid-template-columns:1fr;
+    gap:6px;
+    margin-bottom:34px;
+    padding:18px 20px;
+    border-radius:12px;
+  }
+  .rate-strip a{justify-self:start;padding:0}
+}
