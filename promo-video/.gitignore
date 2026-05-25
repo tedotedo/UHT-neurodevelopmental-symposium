@@ -1,5 +1,7 @@
 node_modules/
 .hyperframes/
+.DS_Store
+assets/*.wav
 renders/stills/
 renders/work-*/
 *.log

@@ -23,6 +23,12 @@ Create a calm, credible NHS staff promotional video for the Tees Neurodevelopmen
 - Light flashes travel along network lines.
 - Smooth fades and short vertical lifts; no harsh spins or bouncy motion.
 
+## Audio
+
+- Quiet, copyright-safe instrumental bed.
+- Soft clinical/hopeful tone: warm pads with light bell accents.
+- No vocals, no dramatic percussion, no distracting melody.
+
 ## What NOT To Do
 
 - No patient imagery, no placeholder faculty photos, no cartoon medical graphics.
