@@ -73,12 +73,14 @@
       .thread {
         stroke: #3fb4e4;
         stroke-width: 1.6;
-        opacity: 0.48;
+        opacity: 0.34;
       }
 
       .node {
         fill: #18a9db;
-        opacity: 0.78;
+        opacity: 0.46;
+        filter: drop-shadow(0 0 7px rgba(0, 169, 206, 0.58));
+        transform-box: fill-box;
         transform-origin: center;
       }
 
@@ -86,12 +88,58 @@
         fill: #005eb8;
       }
 
-      .flash {
-        stroke: #ffffff;
-        stroke-width: 7;
+      .halo {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.95);
+        stroke-width: 2.2;
+        opacity: 0;
+        filter: drop-shadow(0 0 11px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 24px rgba(0, 169, 206, 0.72));
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      .synapse {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.96);
         stroke-linecap: round;
-        stroke-dasharray: 78 1160;
-        filter: drop-shadow(0 0 9px rgba(255, 255, 255, 1)) drop-shadow(0 0 22px rgba(0, 169, 206, 0.9)) drop-shadow(0 0 34px rgba(0, 94, 184, 0.45));
+        stroke-width: 3.3;
+        opacity: 0;
+        vector-effect: non-scaling-stroke;
+        filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 18px rgba(0, 169, 206, 0.66));
+      }
+
+      .spark {
+        opacity: 0;
+        filter: drop-shadow(0 0 9px rgba(255, 255, 255, 0.98)) drop-shadow(0 0 24px rgba(0, 169, 206, 0.86));
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      .spark-dot {
+        fill: #ffffff;
+      }
+
+      .spark-cyan {
+        fill: #00a9ce;
+      }
+
+      .spark-star {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 3.6;
+        stroke-linecap: round;
+      }
+
+      .mote {
+        fill: #8dc8e8;
+        opacity: 0.24;
+      }
+
+      .flash {
+        stroke: rgba(255, 255, 255, 0.85);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 9px rgba(255, 255, 255, 0.92)) drop-shadow(0 0 26px rgba(0, 169, 206, 0.64));
         opacity: 0;
       }
 
@@ -344,9 +392,60 @@
         <path class="thread" d="M110 180 L240 260 L380 210 L520 290 L690 160 L860 250 L1080 190" />
         <path class="thread" d="M190 470 L330 350 L500 520 L700 400 L890 560 L1080 430" />
         <path class="thread" d="M380 210 L500 520 L690 160 L700 400 L860 250 L1080 430" />
+        <g class="motes">
+          <circle class="mote" cx="72" cy="322" r="3" />
+          <circle class="mote" cx="154" cy="104" r="4" />
+          <circle class="mote" cx="286" cy="548" r="3" />
+          <circle class="mote" cx="422" cy="112" r="3" />
+          <circle class="mote" cx="588" cy="612" r="4" />
+          <circle class="mote" cx="760" cy="82" r="3" />
+          <circle class="mote" cx="930" cy="350" r="3" />
+          <circle class="mote" cx="1134" cy="552" r="4" />
+        </g>
         <path class="flash flash-a" d="M0 420 C180 140 330 560 520 290 S880 30 1200 210" />
         <path class="flash flash-b" d="M30 610 C245 320 410 720 650 410 S910 170 1210 470" />
         <path class="flash flash-c" d="M110 180 L240 260 L380 210 L520 290 L690 160 L860 250 L1080 190" />
+        <g class="synapse-bursts">
+          <path class="synapse" d="M110 180 L240 260" />
+          <path class="synapse" d="M240 260 L380 210" />
+          <path class="synapse" d="M380 210 L520 290" />
+          <path class="synapse" d="M520 290 L690 160" />
+          <path class="synapse" d="M690 160 L860 250" />
+          <path class="synapse" d="M860 250 L1080 190" />
+          <path class="synapse" d="M190 470 L330 350" />
+          <path class="synapse" d="M330 350 L500 520" />
+          <path class="synapse" d="M500 520 L700 400" />
+          <path class="synapse" d="M700 400 L890 560" />
+          <path class="synapse" d="M380 210 L500 520" />
+          <path class="synapse" d="M690 160 L700 400" />
+        </g>
+        <g class="halos">
+          <circle class="halo" cx="110" cy="180" r="16" />
+          <circle class="halo" cx="380" cy="210" r="18" />
+          <circle class="halo" cx="520" cy="290" r="16" />
+          <circle class="halo" cx="690" cy="160" r="19" />
+          <circle class="halo" cx="1080" cy="190" r="18" />
+          <circle class="halo" cx="330" cy="350" r="16" />
+          <circle class="halo" cx="500" cy="520" r="18" />
+          <circle class="halo" cx="700" cy="400" r="18" />
+          <circle class="halo" cx="1080" cy="430" r="17" />
+        </g>
+        <g class="spark-field">
+          <circle class="spark spark-dot" cx="154" cy="154" r="4" />
+          <circle class="spark spark-cyan" cx="296" cy="304" r="5" />
+          <circle class="spark spark-dot" cx="456" cy="248" r="4" />
+          <circle class="spark spark-cyan" cx="612" cy="188" r="5" />
+          <circle class="spark spark-dot" cx="806" cy="306" r="4" />
+          <circle class="spark spark-cyan" cx="1020" cy="238" r="5" />
+          <circle class="spark spark-dot" cx="246" cy="506" r="4" />
+          <circle class="spark spark-cyan" cx="562" cy="548" r="5" />
+          <circle class="spark spark-dot" cx="796" cy="462" r="4" />
+          <circle class="spark spark-cyan" cx="1018" cy="506" r="5" />
+          <path class="spark spark-star" d="M598 106 L598 134 M584 120 L612 120" />
+          <path class="spark spark-star" d="M944 140 L944 168 M930 154 L958 154" />
+          <path class="spark spark-star" d="M418 438 L418 466 M404 452 L432 452" />
+          <path class="spark spark-star" d="M930 594 L930 622 M916 608 L944 608" />
+        </g>
         <g>
           <circle class="node" cx="110" cy="180" r="10" />
           <circle class="node deep" cx="240" cy="260" r="8" />
@@ -458,11 +557,16 @@
       const scenes = [sceneTitle, sceneDayOne, sceneDayTwo, sceneAudience, sceneRate, sceneClose];
       tl.set(scenes, { opacity: 0 });
 
+      tl.set(".halo, .spark, .synapse, .flash", { opacity: 0 }, 0);
+      tl.set(".node", { scale: 0.78, opacity: 0.46 }, 0);
+      tl.set(".halo", { scale: 0.4 }, 0);
+      tl.set(".spark", { scale: 0.3 }, 0);
       tl.to(".network", { x: -70, y: 18, scale: 1.04, duration: 30, ease: "none" }, 0);
-      tl.to(".node", { scale: 1.35, opacity: 1, duration: 1.8, stagger: 0.18, repeat: 15, yoyo: true, ease: "sine.inOut" }, 0);
-      tl.to(".flash-a", { strokeDashoffset: -1240, opacity: 1, duration: 3.8, repeat: 7, ease: "none" }, 0.2);
-      tl.to(".flash-b", { strokeDashoffset: -1240, opacity: 1, duration: 4.2, repeat: 6, ease: "none" }, 1.1);
-      tl.to(".flash-c", { strokeDashoffset: -1240, opacity: 1, duration: 4.6, repeat: 6, ease: "none" }, 2.0);
+      tl.to(".node", { scale: 0.98, opacity: 0.7, duration: 2.4, stagger: 0.22, repeat: 12, yoyo: true, ease: "sine.inOut" }, 0);
+      tl.to(".halo", { scale: 2.15, opacity: 0.44, duration: 1.15, stagger: 0.3, repeat: 8, yoyo: true, ease: "sine.out" }, 0.25);
+      tl.to(".synapse", { opacity: 0.68, duration: 0.24, stagger: 0.16, repeat: 12, yoyo: true, ease: "power2.inOut" }, 0.35);
+      tl.to(".spark", { scale: 1.85, opacity: 1, duration: 0.36, stagger: 0.12, repeat: 8, yoyo: true, ease: "power2.out" }, 0.55);
+      tl.to(".flash", { opacity: 0.22, duration: 0.72, stagger: 1.7, repeat: 7, yoyo: true, ease: "sine.inOut" }, 0.85);
 
       function showScene(scene, start, duration) {
         tl.to(scene, { opacity: 1, duration: 0.55, ease: "power2.out" }, start);

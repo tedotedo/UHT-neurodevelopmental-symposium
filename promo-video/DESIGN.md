@@ -20,7 +20,7 @@ Create a calm, credible NHS staff promotional video for the Tees Neurodevelopmen
 
 - Slow ambient network movement in the background.
 - Topic cards enter in small cascades.
-- Light flashes travel along network lines.
+- Light flashes bloom across nodes, synaptic branches and tiny glints across the network.
 - Smooth fades and short vertical lifts; no harsh spins or bouncy motion.
 
 ## Audio
