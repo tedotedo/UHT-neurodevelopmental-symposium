@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Tees Neurodevelopmental Symposium promo</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ink: #061b31;
+        --muted: #526985;
+        --blue: #005eb8;
+        --blue-dark: #003087;
+        --cyan: #00a9ce;
+        --line: #d7e8f7;
+        --soft: #f4fbff;
+        --panel: rgba(255, 255, 255, 0.88);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f4fbff;
+        color: var(--ink);
+        font-family: system-ui, sans-serif;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 82% 18%, rgba(0, 169, 206, 0.33), transparent 31%),
+          radial-gradient(circle at 95% 74%, rgba(0, 94, 184, 0.29), transparent 36%),
+          linear-gradient(106deg, #ffffff 0%, #ffffff 36%, #eefaff 54%, #bdeaff 75%, #eaf8ff 100%);
+      }
+
+      .wash {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 34%, rgba(255, 255, 255, 0.46) 58%, rgba(255, 255, 255, 0.08) 86%),
+          radial-gradient(circle at 72% 40%, rgba(255, 255, 255, 0.55), transparent 30%);
+      }
+
+      .network {
+        position: absolute;
+        inset: -40px -80px -40px 560px;
+        z-index: 1;
+        opacity: 0.95;
+      }
+
+      .network path {
+        fill: none;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .wave {
+        stroke-linecap: round;
+        opacity: 0.42;
+      }
+
+      .thread {
+        stroke: #3fb4e4;
+        stroke-width: 1.6;
+        opacity: 0.48;
+      }
+
+      .node {
+        fill: #18a9db;
+        opacity: 0.78;
+        transform-origin: center;
+      }
+
+      .node.deep {
+        fill: #005eb8;
+      }
+
+      .flash {
+        stroke: #ffffff;
+        stroke-width: 7;
+        stroke-linecap: round;
+        stroke-dasharray: 78 1160;
+        filter: drop-shadow(0 0 9px rgba(255, 255, 255, 1)) drop-shadow(0 0 22px rgba(0, 169, 206, 0.9)) drop-shadow(0 0 34px rgba(0, 94, 184, 0.45));
+        opacity: 0;
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 104px 128px 96px;
+        opacity: 0;
+      }
+
+      .scene.center {
+        align-items: center;
+        text-align: center;
+      }
+
+      .eyebrow {
+        align-self: flex-start;
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 34px;
+        padding: 12px 18px;
+        border-radius: 14px;
+        background: #e8f4ff;
+        color: var(--blue);
+        font: 800 25px/1 system-ui, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .center .eyebrow {
+        align-self: center;
+      }
+
+      h1,
+      h2 {
+        max-width: 1060px;
+        font-family: serif;
+        color: #06143a;
+        letter-spacing: -0.04em;
+      }
+
+      h1 {
+        font-size: 112px;
+        line-height: 0.94;
+      }
+
+      h2 {
+        font-size: 86px;
+        line-height: 0.98;
+      }
+
+      .lead {
+        max-width: 900px;
+        margin-top: 34px;
+        color: #1f3158;
+        font-size: 42px;
+        line-height: 1.18;
+        font-weight: 600;
+      }
+
+      .facts {
+        display: flex;
+        gap: 22px;
+        margin-top: 48px;
+      }
+
+      .fact {
+        min-width: 260px;
+        padding: 24px 28px;
+        border: 1px solid rgba(0, 94, 184, 0.18);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 24px 60px -42px rgba(0, 48, 87, 0.45);
+      }
+
+      .fact span {
+        display: block;
+        color: var(--blue);
+        font: 800 18px/1 system-ui, sans-serif;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .fact strong {
+        display: block;
+        margin-top: 12px;
+        font-size: 34px;
+        line-height: 1.05;
+      }
+
+      .day-layout {
+        display: grid;
+        grid-template-columns: 540px 1fr;
+        gap: 58px;
+        align-items: start;
+      }
+
+      .day-tag {
+        padding: 34px;
+        border-left: 8px solid var(--blue);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 24px 70px -48px rgba(0, 48, 87, 0.55);
+      }
+
+      .day-tag small {
+        display: block;
+        color: var(--blue);
+        font: 800 22px/1 system-ui, sans-serif;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .day-tag strong {
+        display: block;
+        margin-top: 22px;
+        font: 800 50px/0.98 serif;
+        letter-spacing: -0.04em;
+      }
+
+      .topic-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .topic {
+        min-height: 118px;
+        padding: 24px 26px;
+        border: 1px solid rgba(0, 94, 184, 0.16);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow: 0 18px 46px -38px rgba(0, 48, 87, 0.5);
+      }
+
+      .topic span {
+        display: block;
+        color: var(--blue);
+        font: 800 20px/1 system-ui, sans-serif;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .topic strong {
+        display: block;
+        margin-top: 10px;
+        color: var(--ink);
+        font-size: 31px;
+        line-height: 1.05;
+      }
+
+      .audience-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        max-width: 980px;
+        margin-top: 52px;
+      }
+
+      .audience-item {
+        padding: 24px 28px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--ink);
+        font-size: 34px;
+        font-weight: 800;
+        box-shadow: 0 18px 48px -38px rgba(0, 48, 87, 0.5);
+      }
+
+      .rate-panel {
+        max-width: 1160px;
+        padding: 46px 54px;
+        border: 1px solid rgba(0, 94, 184, 0.22);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 28px 84px -56px rgba(0, 48, 87, 0.6);
+      }
+
+      .rate-panel p {
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: 40px;
+        line-height: 1.18;
+        font-weight: 700;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 360px;
+        margin-top: 46px;
+        padding: 24px 38px;
+        border-radius: 18px;
+        background: var(--blue);
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: 800;
+        box-shadow: 0 28px 68px -42px rgba(0, 94, 184, 0.8);
+      }
+
+      .footer-note {
+        position: absolute;
+        left: 128px;
+        right: 128px;
+        bottom: 54px;
+        z-index: 4;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        color: #3b536f;
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .footer-note strong {
+        color: var(--blue);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="wash" aria-hidden="true"></div>
+
+      <svg class="network" viewBox="0 0 1200 760" preserveAspectRatio="none" aria-hidden="true" data-layout-allow-overflow>
+        <path class="wave" style="stroke:#00a9ce;stroke-width:4" d="M0 420 C180 140 330 560 520 290 S880 30 1200 210" />
+        <path class="wave" style="stroke:#005eb8;stroke-width:2.8" d="M30 610 C245 320 410 720 650 410 S910 170 1210 470" />
+        <path class="wave" style="stroke:#8dc8e8;stroke-width:2.4" d="M110 180 C300 50 430 250 620 120 S940 30 1160 130" />
+        <path class="thread" d="M110 180 L240 260 L380 210 L520 290 L690 160 L860 250 L1080 190" />
+        <path class="thread" d="M190 470 L330 350 L500 520 L700 400 L890 560 L1080 430" />
+        <path class="thread" d="M380 210 L500 520 L690 160 L700 400 L860 250 L1080 430" />
+        <path class="flash flash-a" d="M0 420 C180 140 330 560 520 290 S880 30 1200 210" />
+        <path class="flash flash-b" d="M30 610 C245 320 410 720 650 410 S910 170 1210 470" />
+        <path class="flash flash-c" d="M110 180 L240 260 L380 210 L520 290 L690 160 L860 250 L1080 190" />
+        <g>
+          <circle class="node" cx="110" cy="180" r="10" />
+          <circle class="node deep" cx="240" cy="260" r="8" />
+          <circle class="node" cx="380" cy="210" r="10" />
+          <circle class="node deep" cx="520" cy="290" r="8" />
+          <circle class="node" cx="690" cy="160" r="11" />
+          <circle class="node deep" cx="860" cy="250" r="7" />
+          <circle class="node" cx="1080" cy="190" r="11" />
+          <circle class="node" cx="190" cy="470" r="7" />
+          <circle class="node deep" cx="330" cy="350" r="9" />
+          <circle class="node" cx="500" cy="520" r="10" />
+          <circle class="node deep" cx="700" cy="400" r="10" />
+          <circle class="node" cx="890" cy="560" r="7" />
+          <circle class="node deep" cx="1080" cy="430" r="10" />
+        </g>
+      </svg>
+
+      <section class="scene scene-title">
+        <div class="eyebrow">University Hospital Tees NHS Foundation Trust</div>
+        <h1>Tees Neurodevelopmental Symposium</h1>
+        <p class="lead">Advancing Knowledge for Better Care</p>
+        <div class="facts">
+          <div class="fact"><span>Date</span><strong>6-7 July 2026</strong></div>
+          <div class="fact"><span>Venue</span><strong>Hardwick Hall Hotel</strong></div>
+          <div class="fact"><span>Audience</span><strong>NHS clinical teams</strong></div>
+        </div>
+      </section>
+
+      <section class="scene scene-day-one">
+        <div class="day-layout">
+          <div class="day-tag">
+            <small>Day 1</small>
+            <strong>Clinical neurodevelopment in practice</strong>
+          </div>
+          <div class="topic-grid">
+            <div class="topic"><span>09:30</span><strong>Cerebral palsy care</strong></div>
+            <div class="topic"><span>10:15</span><strong>Autism and genetic discovery</strong></div>
+            <div class="topic"><span>11:30</span><strong>Movement disorders</strong></div>
+            <div class="topic"><span>12:15</span><strong>Spasticity management</strong></div>
+            <div class="topic"><span>13:45</span><strong>Functional neurological disorders</strong></div>
+            <div class="topic"><span>14:30</span><strong>Neurometabolic conditions</strong></div>
+            <div class="topic"><span>15:30</span><strong>Palliative care communication</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene-day-two">
+        <div class="day-layout">
+          <div class="day-tag">
+            <small>Day 2</small>
+            <strong>Complex needs across systems</strong>
+          </div>
+          <div class="topic-grid">
+            <div class="topic"><span>09:30</span><strong>Tuberous sclerosis and neurofibromatosis</strong></div>
+            <div class="topic"><span>10:15</span><strong>Genetic testing in neurodisability</strong></div>
+            <div class="topic"><span>11:30</span><strong>Asylum-seeking and refugee child health</strong></div>
+            <div class="topic"><span>12:15</span><strong>Complex epilepsy</strong></div>
+            <div class="topic"><span>13:45</span><strong>Mental health in neurodevelopmental disorders</strong></div>
+            <div class="topic"><span>14:15</span><strong>FASD</strong></div>
+            <div class="topic"><span>15:00</span><strong>Transition for complex medical needs</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene-audience">
+        <div class="eyebrow">Who should attend</div>
+        <h2>For colleagues working with children and young people</h2>
+        <div class="audience-list">
+          <div class="audience-item">Paediatricians</div>
+          <div class="audience-item">Nurses</div>
+          <div class="audience-item">Therapists</div>
+          <div class="audience-item">Specialist trainees</div>
+          <div class="audience-item">Allied professionals</div>
+          <div class="audience-item">Non-clinical staff</div>
+        </div>
+      </section>
+
+      <section class="scene scene-rate center">
+        <div class="rate-panel">
+          <div class="eyebrow">Reduced rate available</div>
+          <h2>For Nurses, Therapists, Non-clinical staff and Paediatric trainees</h2>
+          <p>For alternative booking information, contact michelle.leahy1@nhs.net</p>
+        </div>
+      </section>
+
+      <section class="scene scene-close center">
+        <div class="eyebrow">6-7 July 2026</div>
+        <h2>Two focused days of practical learning</h2>
+        <p class="lead">Hardwick Hall Hotel, Sedgefield</p>
+        <div class="cta">Book your place</div>
+      </section>
+
+      <div class="footer-note">
+        <span>Tees Neurodevelopmental Symposium</span>
+        <span><strong>Full programme and booking:</strong> events.southtees.nhs.uk</span>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const sceneTitle = document.querySelector(".scene-title");
+      const sceneDayOne = document.querySelector(".scene-day-one");
+      const sceneDayTwo = document.querySelector(".scene-day-two");
+      const sceneAudience = document.querySelector(".scene-audience");
+      const sceneRate = document.querySelector(".scene-rate");
+      const sceneClose = document.querySelector(".scene-close");
+      const scenes = [sceneTitle, sceneDayOne, sceneDayTwo, sceneAudience, sceneRate, sceneClose];
+      tl.set(scenes, { opacity: 0 });
+
+      tl.to(".network", { x: -70, y: 18, scale: 1.04, duration: 30, ease: "none" }, 0);
+      tl.to(".node", { scale: 1.35, opacity: 1, duration: 1.8, stagger: 0.18, repeat: 15, yoyo: true, ease: "sine.inOut" }, 0);
+      tl.to(".flash-a", { strokeDashoffset: -1240, opacity: 1, duration: 3.8, repeat: 7, ease: "none" }, 0.2);
+      tl.to(".flash-b", { strokeDashoffset: -1240, opacity: 1, duration: 4.2, repeat: 6, ease: "none" }, 1.1);
+      tl.to(".flash-c", { strokeDashoffset: -1240, opacity: 1, duration: 4.6, repeat: 6, ease: "none" }, 2.0);
+
+      function showScene(scene, start, duration) {
+        tl.to(scene, { opacity: 1, duration: 0.55, ease: "power2.out" }, start);
+
+        const primaryTargets = scene.querySelectorAll(".eyebrow, h1, h2, .lead, .facts, .day-tag, .rate-panel, .cta");
+        const cardTargets = scene.querySelectorAll(".topic, .audience-item, .fact");
+
+        if (primaryTargets.length) {
+          tl.from(primaryTargets, {
+            y: 44,
+            opacity: 0,
+            duration: 0.65,
+            stagger: 0.08,
+            ease: "power3.out"
+          }, start + 0.1);
+        }
+
+        if (cardTargets.length) {
+          tl.from(cardTargets, {
+            y: 32,
+            opacity: 0,
+            scale: 0.98,
+            duration: 0.46,
+            stagger: 0.055,
+            ease: "power2.out"
+          }, start + 0.42);
+        }
+
+        tl.to(scene, { opacity: 0, duration: 0.48, ease: "power2.in" }, start + duration - 0.48);
+      }
+
+      showScene(sceneTitle, 0, 5.2);
+      showScene(sceneDayOne, 4.9, 6.2);
+      showScene(sceneDayTwo, 10.8, 6.4);
+      showScene(sceneAudience, 16.9, 5.0);
+      showScene(sceneRate, 21.6, 4.2);
+      showScene(sceneClose, 25.4, 4.6);
+
+      tl.from(".footer-note", { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 1.0);
+      tl.to(".footer-note", { opacity: 0, duration: 0.35, ease: "power2.in" }, 29.4);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
