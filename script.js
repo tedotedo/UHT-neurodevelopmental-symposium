@@ -134,7 +134,7 @@ document.documentElement.classList.add('js-ready');
     bar.className = 'sticky-booking-bar';
     bar.setAttribute('aria-label', 'Booking shortcut');
     bar.innerHTML = `
-      <div class="sticky-booking-bar__text"><strong>Reduced rate available</strong><span>For Therapists, Non-clinical staff and Paediatric trainees</span></div>
+      <div class="sticky-booking-bar__text"><strong>Reduced rate available</strong><span>For Nurses, Therapists, Non-clinical staff and Paediatric trainees</span></div>
       <a class="button primary" href="${bookingUrl}">Book</a>`;
     document.body.appendChild(bar);
     const updateBar = () => {
