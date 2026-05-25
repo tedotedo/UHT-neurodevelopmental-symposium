@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Tees Neurodevelopmental Symposium vertical promo</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ink: #061b31;
+        --muted: #526985;
+        --blue: #005eb8;
+        --cyan: #00a9ce;
+        --panel: rgba(255, 255, 255, 0.9);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #f4fbff;
+        color: var(--ink);
+        font-family: Arial, system-ui, sans-serif;
+      }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 62% 16%, rgba(0, 169, 206, 0.22), transparent 32%),
+          linear-gradient(168deg, #ffffff 0%, #f4fbff 38%, #cfefff 100%);
+      }
+
+      video {
+        display: block;
+      }
+
+      .motion-bg {
+        position: absolute;
+        inset: -160px;
+        background:
+          radial-gradient(circle at 24% 22%, rgba(255, 255, 255, 0.84) 0 8%, transparent 22%),
+          radial-gradient(circle at 78% 28%, rgba(0, 169, 206, 0.18) 0 10%, transparent 32%),
+          radial-gradient(circle at 56% 76%, rgba(0, 94, 184, 0.12) 0 12%, transparent 38%),
+          linear-gradient(142deg, rgba(255, 255, 255, 0.94), rgba(205, 239, 255, 0.7));
+        filter: saturate(1.12);
+        opacity: 0.95;
+      }
+
+      .wash {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(255, 255, 255, 0.36) 46%, rgba(255, 255, 255, 0.72) 100%),
+          radial-gradient(circle at 76% 48%, rgba(255, 255, 255, 0.4), transparent 34%);
+      }
+
+      .main-video-wrap {
+        position: absolute;
+        left: 40px;
+        top: 565px;
+        width: 1000px;
+        height: 562px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 94, 184, 0.2);
+        border-radius: 28px;
+        box-shadow: 0 30px 70px rgba(6, 27, 49, 0.18);
+      }
+
+      .main-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .panel {
+        position: absolute;
+        left: 40px;
+        width: 1000px;
+        border-radius: 26px;
+        background: var(--panel);
+        box-shadow: 0 24px 70px rgba(6, 27, 49, 0.12);
+        overflow: hidden;
+      }
+
+      .panel::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 9px;
+        background: var(--blue);
+      }
+
+      .top-panel {
+        top: 130px;
+        height: 340px;
+        padding: 46px 52px 42px 78px;
+      }
+
+      .bottom-panel {
+        top: 1240px;
+        height: 380px;
+        padding: 50px 52px 42px 78px;
+      }
+
+      .bottom-panel::before {
+        background: var(--cyan);
+      }
+
+      .trust {
+        margin-bottom: 22px;
+        color: var(--blue);
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: none;
+        font-size: 54px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+      }
+
+      h1 span {
+        color: var(--blue);
+      }
+
+      .tagline {
+        margin-top: 24px;
+        color: var(--ink);
+        font-size: 34px;
+        line-height: 1.2;
+      }
+
+      h2 {
+        color: var(--blue);
+        font-size: 48px;
+        line-height: 1.05;
+      }
+
+      .url {
+        margin-top: 28px;
+        color: var(--ink);
+        font-size: 34px;
+        font-weight: 700;
+      }
+
+      .rates {
+        margin-top: 42px;
+        color: var(--muted);
+        font-size: 31px;
+        line-height: 1.34;
+      }
+
+      .spark {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #ffffff;
+        box-shadow: 0 0 18px rgba(255, 255, 255, 0.95), 0 0 38px rgba(0, 169, 206, 0.78);
+        opacity: 0;
+      }
+
+      .spark.one { left: 796px; top: 92px; }
+      .spark.two { left: 904px; top: 504px; }
+      .spark.three { left: 146px; top: 1170px; }
+      .spark.four { left: 842px; top: 1690px; }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="social-vertical"
+      data-start="0"
+      data-duration="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="motion-bg" aria-hidden="true"></div>
+      <audio
+        id="social-audio"
+        data-start="0"
+        data-duration="30"
+        data-track-index="2"
+        src="renders/tees-neurodevelopmental-symposium-promo-with-music.mp4"
+        data-volume="0.9"
+      ></audio>
+      <div class="wash" aria-hidden="true"></div>
+      <div class="spark one" aria-hidden="true"></div>
+      <div class="spark two" aria-hidden="true"></div>
+      <div class="spark three" aria-hidden="true"></div>
+      <div class="spark four" aria-hidden="true"></div>
+
+      <section class="panel top-panel">
+        <p class="trust">University Hospital Tees NHS Foundation Trust</p>
+        <h1>Tees Neurodevelopmental <span>Paediatrics Symposium</span></h1>
+        <p class="tagline">6-7 July 2026 | Hardwick Hall Hotel</p>
+      </section>
+
+      <div class="main-video-wrap">
+        <video
+          id="main-video"
+          class="main-video"
+          data-start="0"
+          data-duration="30"
+          data-track-index="0"
+          src="renders/tees-neurodevelopmental-symposium-promo-with-music.mp4"
+          muted
+          playsinline
+        ></video>
+      </div>
+
+      <section class="panel bottom-panel">
+        <h2>Programme and booking</h2>
+        <p class="url">tees-neurodevelopmental-symposium.netlify.app</p>
+        <p class="rates">Reduced rates for Nurses, Therapists, Non-clinical staff and Paediatric trainees.</p>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.from(".top-panel", { y: 28, opacity: 0, duration: 0.7, ease: "power3.out" }, 0);
+      tl.from(".main-video-wrap", { y: 34, opacity: 0, duration: 0.75, ease: "power3.out" }, 0.25);
+      tl.from(".bottom-panel", { y: 28, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.45);
+      tl.to(".spark", { scale: 3.8, opacity: 0.92, duration: 0.5, stagger: 0.45, repeat: 13, yoyo: true, ease: "sine.inOut" }, 0.8);
+      tl.fromTo(".motion-bg", { scale: 1, x: 0, y: 0 }, { scale: 1.08, x: -34, y: 22, duration: 30, ease: "none" }, 0);
+
+      window.__timelines["social-vertical"] = tl;
+    </script>
+  </body>
+</html>
