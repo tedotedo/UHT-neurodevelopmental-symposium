@@ -296,7 +296,7 @@ body{
   grid-template-columns:repeat(3,minmax(0,1fr))!important;
 }
 .faculty-card{
-  min-height:150px;
+  min-height:188px;
   border-radius:12px!important;
   box-shadow:none!important;
 }
@@ -305,7 +305,12 @@ body{
   font-size:30px!important;
 }
 .faculty-card p{
-  display:none;
+  display:block;
+  margin:10px 0 0!important;
+  color:var(--refresh-muted)!important;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.25;
 }
 
 .tnp-programme{
